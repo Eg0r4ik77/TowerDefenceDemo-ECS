@@ -8,15 +8,45 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
+    public const int Destroyed = 0;
+    public const int Transform = 1;
+    public const int View = 2;
+    public const int WorldPosition = 3;
+    public const int Direction = 4;
+    public const int FinishedPath = 5;
+    public const int Moving = 6;
+    public const int Path = 7;
+    public const int ReachDistance = 8;
+    public const int Speed = 9;
+    public const int TargetPosition = 10;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 11;
 
     public static readonly string[] componentNames = {
-
+        "Destroyed",
+        "Transform",
+        "View",
+        "WorldPosition",
+        "Direction",
+        "FinishedPath",
+        "Moving",
+        "Path",
+        "ReachDistance",
+        "Speed",
+        "TargetPosition"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(Code.Common.Destroyed),
+        typeof(Code.Common.TransformComponent),
+        typeof(Code.Common.View),
+        typeof(Code.Common.WorldPosition),
+        typeof(Code.Gameplay.Movement.Direction),
+        typeof(Code.Gameplay.Movement.FinishedPath),
+        typeof(Code.Gameplay.Movement.Moving),
+        typeof(Code.Gameplay.Movement.PathComponent),
+        typeof(Code.Gameplay.Movement.ReachDistance),
+        typeof(Code.Gameplay.Movement.Speed),
+        typeof(Code.Gameplay.Movement.TargetPosition)
     };
 }
