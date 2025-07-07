@@ -12,21 +12,23 @@ public static class GameComponentsLookup {
     public const int Transform = 1;
     public const int View = 2;
     public const int WorldPosition = 3;
-    public const int Direction = 4;
-    public const int FinishedPath = 5;
-    public const int Moving = 6;
-    public const int Path = 7;
-    public const int ReachDistance = 8;
-    public const int Speed = 9;
-    public const int TargetPosition = 10;
+    public const int EnemySpawnTimer = 4;
+    public const int Direction = 5;
+    public const int FinishedPath = 6;
+    public const int Moving = 7;
+    public const int Path = 8;
+    public const int ReachDistance = 9;
+    public const int Speed = 10;
+    public const int TargetPosition = 11;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
         "Destroyed",
         "Transform",
         "View",
         "WorldPosition",
+        "EnemySpawnTimer",
         "Direction",
         "FinishedPath",
         "Moving",
@@ -41,6 +43,7 @@ public static class GameComponentsLookup {
         typeof(Code.Common.TransformComponent),
         typeof(Code.Common.View),
         typeof(Code.Common.WorldPosition),
+        typeof(Code.Gameplay.Enemies.EnemySpawnTimer),
         typeof(Code.Gameplay.Movement.Direction),
         typeof(Code.Gameplay.Movement.FinishedPath),
         typeof(Code.Gameplay.Movement.Moving),

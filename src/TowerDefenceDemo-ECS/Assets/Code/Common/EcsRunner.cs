@@ -1,3 +1,4 @@
+using Code.Gameplay.Enemies;
 using Code.Gameplay.Movement;
 using UnityEngine;
 
@@ -7,7 +8,11 @@ namespace Code.Common
     {
         private MovementFeature _movementFeature;
         private CleanupDestroyedFeature _cleanupDestroyedFeature;
+        private EnemyFeature _enemyFeature;
         
+        public TestMonster _enemyPrefab;
+        public Transform[] _routePoints;
+
         private void Start()
         {
             var context = Contexts.sharedInstance.game;
@@ -17,6 +22,9 @@ namespace Code.Common
             
             _cleanupDestroyedFeature = new CleanupDestroyedFeature(context);
             _cleanupDestroyedFeature.Initialize();
+            
+            _enemyFeature = new EnemyFeature(context, _enemyPrefab, _routePoints);
+            _enemyFeature.Initialize();
         }
 
         private void Update()
@@ -26,12 +34,16 @@ namespace Code.Common
             
             _cleanupDestroyedFeature.Execute();
             _cleanupDestroyedFeature.Cleanup();
+            
+            _enemyFeature.Execute();
+            _enemyFeature.Cleanup();
         }
 
         private void OnDestroy()
         {
             _movementFeature.TearDown();
             _cleanupDestroyedFeature.TearDown();
+            _enemyFeature.TearDown();
         }
     }
 }
