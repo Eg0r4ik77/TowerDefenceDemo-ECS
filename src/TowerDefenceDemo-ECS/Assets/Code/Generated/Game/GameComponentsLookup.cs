@@ -16,12 +16,11 @@ public static class GameComponentsLookup {
     public const int Direction = 5;
     public const int FinishedPath = 6;
     public const int Moving = 7;
-    public const int Path = 8;
-    public const int ReachDistance = 9;
-    public const int Speed = 10;
-    public const int TargetPosition = 11;
+    public const int ReachDistance = 8;
+    public const int Speed = 9;
+    public const int TargetPosition = 10;
 
-    public const int TotalComponents = 12;
+    public const int TotalComponents = 11;
 
     public static readonly string[] componentNames = {
         "Destroyed",
@@ -32,7 +31,6 @@ public static class GameComponentsLookup {
         "Direction",
         "FinishedPath",
         "Moving",
-        "Path",
         "ReachDistance",
         "Speed",
         "TargetPosition"
@@ -47,7 +45,6 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Movement.Direction),
         typeof(Code.Gameplay.Movement.FinishedPath),
         typeof(Code.Gameplay.Movement.Moving),
-        typeof(Code.Gameplay.Movement.PathComponent),
         typeof(Code.Gameplay.Movement.ReachDistance),
         typeof(Code.Gameplay.Movement.Speed),
         typeof(Code.Gameplay.Movement.TargetPosition)

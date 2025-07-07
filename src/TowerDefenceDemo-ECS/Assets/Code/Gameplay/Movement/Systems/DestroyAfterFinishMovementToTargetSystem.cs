@@ -2,11 +2,11 @@ using Entitas;
 
 namespace Code.Gameplay.Movement.Systems
 {
-    public class DestroyAfterFinishPathSystem : IExecuteSystem
+    public class DestroyAfterFinishMovementToTargetSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _entities;
 
-        public DestroyAfterFinishPathSystem(GameContext game)
+        public DestroyAfterFinishMovementToTargetSystem(GameContext game)
         {
             _entities = game.GetGroup(GameMatcher
                 .AllOf(GameMatcher.FinishedPath));

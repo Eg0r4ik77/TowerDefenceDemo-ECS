@@ -1,19 +1,19 @@
 using Code.Common;
 using Entitas;
 using UnityEngine;
+using VContainer;
 
 namespace Code.Gameplay.Enemies.Systems
 {
     public class SpawnEnemySystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _entities;
-        private readonly TestMonster _prefab;
-        private readonly Transform[] _routePoints;
+        private readonly EnemyFactory _enemyFactory;
 
-        public SpawnEnemySystem(GameContext game, TestMonster prefab, Transform[] routePoints)
+        [Inject]
+        public SpawnEnemySystem(EnemyFactory enemyFactory, GameContext game)
         {
-            _prefab = prefab;
-            _routePoints = routePoints;
+            _enemyFactory = enemyFactory;
             
             _entities = game.GetGroup(GameMatcher
                 .AllOf(GameMatcher.EnemySpawnTimer));
@@ -27,9 +27,7 @@ namespace Code.Gameplay.Enemies.Systems
                 {
                     entity.ReplaceEnemySpawnTimer(3);
                     
-                    var enemy = Object.Instantiate(_prefab);
-                    enemy.Init(_routePoints);
-                    
+                    _enemyFactory.CreateEnemy(EnemyType.Simple, Vector3.zero);
                 }
 
                 entity.ReplaceEnemySpawnTimer(entity.EnemySpawnTimer - Time.deltaTime);

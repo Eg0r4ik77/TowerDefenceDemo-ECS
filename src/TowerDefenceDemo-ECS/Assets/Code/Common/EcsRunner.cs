@@ -10,8 +10,8 @@ namespace Code.Common
         private CleanupDestroyedFeature _cleanupDestroyedFeature;
         private EnemyFeature _enemyFeature;
         
-        public TestMonster _enemyPrefab;
-        public Transform[] _routePoints;
+        public Transform _spawnPoint;
+        public EnemyFactory _enemyFactory;
 
         private void Start()
         {
@@ -23,7 +23,7 @@ namespace Code.Common
             _cleanupDestroyedFeature = new CleanupDestroyedFeature(context);
             _cleanupDestroyedFeature.Initialize();
             
-            _enemyFeature = new EnemyFeature(context, _enemyPrefab, _routePoints);
+            _enemyFeature = new EnemyFeature(_enemyFactory, context);
             _enemyFeature.Initialize();
         }
 

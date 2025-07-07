@@ -6,10 +6,10 @@ namespace Code.Gameplay.Enemies
 {
     public class EnemyFeature : Feature
     {
-        public EnemyFeature(GameContext gameContext, TestMonster prefab, Transform[] routePoints)
+        public EnemyFeature(EnemyFactory enemyFactory, GameContext gameContext)
         {
             Add(new InitializeEnemySpawnTimerSystem());
-            Add(new SpawnEnemySystem(gameContext, prefab, routePoints));
+            Add(new SpawnEnemySystem(enemyFactory, gameContext));
         }
     }
 }

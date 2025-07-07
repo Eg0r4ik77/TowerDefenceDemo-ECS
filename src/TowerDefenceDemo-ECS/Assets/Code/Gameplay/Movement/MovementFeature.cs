@@ -8,8 +8,8 @@ namespace Code.Gameplay.Movement
         {
             Add(new DirectionalMoveSystem(gameContext));
             Add(new UpdateTransformPositionSystem(gameContext));
-            Add(new PathMovementSystem(gameContext));
-            Add(new DestroyAfterFinishPathSystem(gameContext));
+            Add(new MovementToTargetPositionSystem(gameContext));
+            Add(new DestroyAfterFinishMovementToTargetSystem(gameContext));
         }
     }
 }

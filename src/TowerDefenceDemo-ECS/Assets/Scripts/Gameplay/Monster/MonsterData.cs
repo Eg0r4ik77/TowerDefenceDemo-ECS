@@ -1,3 +1,4 @@
+using Code.Infrastructure.View;
 using UnityEngine;
 
 namespace Gameplay.Monster
@@ -8,5 +9,6 @@ namespace Gameplay.Monster
         [field: SerializeField] public float Speed { get; private set; }
         [field: SerializeField] public int MaxHealth { get; private set; }
         [field: SerializeField] public float ReachDistance { get; private set; }
+        [field: SerializeField] public EntityBehaviour View { get; private set; }
     }
 }
