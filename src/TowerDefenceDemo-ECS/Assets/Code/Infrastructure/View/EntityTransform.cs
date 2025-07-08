@@ -1,17 +1,15 @@
-using Entitas;
-
 namespace Code.Infrastructure.View
 {
-    public class EntityTransform : EntityBehaviourComponent
+    public class EntityTransform : EntityViewComponent
     {
-        public override void RegisterComponents()
+        public override void Register()
         {
             Entity.AddTransform(transform);
         }
 
-        public override void UnregisterComponents()
+        public override void Unregister()
         {
-            if (Entity.hasTransform){}
+            if (Entity.hasTransform)
                 Entity.RemoveTransform();
         }
     }

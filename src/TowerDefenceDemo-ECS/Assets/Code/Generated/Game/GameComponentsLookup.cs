@@ -8,24 +8,27 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Destroyed = 0;
-    public const int Transform = 1;
-    public const int View = 2;
-    public const int WorldPosition = 3;
-    public const int Enemy = 4;
-    public const int EnemySpawnTimer = 5;
-    public const int Direction = 6;
-    public const int FinishedPath = 7;
-    public const int Moving = 8;
-    public const int ReachDistance = 9;
-    public const int Speed = 10;
-    public const int TargetPosition = 11;
-    public const int CannonProjectile = 12;
-    public const int GuidedProjectile = 13;
+    public const int BottomPoint = 0;
+    public const int Destroyed = 1;
+    public const int Transform = 2;
+    public const int View = 3;
+    public const int WorldPosition = 4;
+    public const int Enemy = 5;
+    public const int EnemySpawnTimer = 6;
+    public const int Direction = 7;
+    public const int FinishedPath = 8;
+    public const int Moving = 9;
+    public const int ReachDistance = 10;
+    public const int Speed = 11;
+    public const int TargetPosition = 12;
+    public const int CannonProjectile = 13;
+    public const int GuidedProjectile = 14;
+    public const int ProjectileTargetId = 15;
 
-    public const int TotalComponents = 14;
+    public const int TotalComponents = 16;
 
     public static readonly string[] componentNames = {
+        "BottomPoint",
         "Destroyed",
         "Transform",
         "View",
@@ -39,10 +42,12 @@ public static class GameComponentsLookup {
         "Speed",
         "TargetPosition",
         "CannonProjectile",
-        "GuidedProjectile"
+        "GuidedProjectile",
+        "ProjectileTargetId"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.Common.BottomPoint),
         typeof(Code.Common.Destroyed),
         typeof(Code.Common.TransformComponent),
         typeof(Code.Common.View),
@@ -56,6 +61,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Movement.Speed),
         typeof(Code.Gameplay.Movement.TargetPosition),
         typeof(Code.Gameplay.Projectiles.CannonProjectile),
-        typeof(Code.Gameplay.Projectiles.GuidedProjectile)
+        typeof(Code.Gameplay.Projectiles.GuidedProjectile),
+        typeof(Code.Gameplay.Projectiles.ProjectileTargetId)
     };
 }

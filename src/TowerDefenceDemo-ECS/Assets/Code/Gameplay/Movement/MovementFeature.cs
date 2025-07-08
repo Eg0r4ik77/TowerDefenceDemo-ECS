@@ -9,6 +9,7 @@ namespace Code.Gameplay.Movement
         {
             Add(systemFactory.Create<DirectionalMoveSystem>());
             Add(systemFactory.Create<UpdateTransformPositionSystem>());
+            Add(systemFactory.Create<UpdatePositionWithBottomPoint>());
             Add(systemFactory.Create<MovementToTargetPositionSystem>());
             Add(systemFactory.Create<DestroyAfterFinishMovementToTargetSystem>());
         }

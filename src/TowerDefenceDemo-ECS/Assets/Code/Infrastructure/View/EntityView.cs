@@ -14,14 +14,14 @@ namespace Code.Infrastructure.View
             _entity.AddView(this);
             _entity.Retain(this);
 
-            foreach (EntityBehaviourComponent registrar in GetComponentsInChildren<EntityBehaviourComponent>()) 
-                registrar.RegisterComponents();
+            foreach (EntityViewComponent entityViewComponent in GetComponentsInChildren<EntityViewComponent>()) 
+                entityViewComponent.Register();
         }
 
         public void ReleaseEntity()
         {
-            foreach (EntityBehaviourComponent registrar in GetComponentsInChildren<EntityBehaviourComponent>()) 
-                registrar.UnregisterComponents();
+            foreach (EntityViewComponent entityViewComponent in GetComponentsInChildren<EntityViewComponent>()) 
+                entityViewComponent.Unregister();
       
             _entity.Release(this);
             _entity = null;
