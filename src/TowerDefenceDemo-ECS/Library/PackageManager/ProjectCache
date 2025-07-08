@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638874608043364066
-    m_Hash: 4032409930
+      ticks: 638875500766683041
+    m_Hash: 2013244755
   m_LockFileStatus:
     m_FilePath: C:/Users/egor/Desktop/UnityProjects/TowerDefenceDemo-ECS/src/TowerDefenceDemo-ECS/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638874608043474552
-    m_Hash: 1359439615
+      ticks: 638875500766979666
+    m_Hash: 4174694891
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -515,62 +515,6 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.0.0
-    nextVersion: 
-    recommendedVersion: 
-    isDeprecated: 0
-    deprecationMessage: 
-  isDeprecated: 0
-  deprecationMessage: 
-  fingerprint: 
-- packageId: jp.hadashikick.vcontainer@https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.16.6
-  testable: 0
-  isDirectDependency: 1
-  version: 1.16.6
-  source: 5
-  resolvedPath: C:\Users\egor\Desktop\UnityProjects\TowerDefenceDemo-ECS\src\TowerDefenceDemo-ECS\Library\PackageCache\jp.hadashikick.vcontainer@7d839caeb7
-  assetPath: Packages/jp.hadashikick.vcontainer
-  name: jp.hadashikick.vcontainer
-  displayName: VContainer
-  author:
-    name: 
-    email: 
-    url: 
-  category: 
-  type: 
-  description: The extra fast DI (Dependency Injection) for Unity
-  status: 0
-  errors: []
-  versions:
-    all: []
-    compatible: []
-    recommended: 
-    deprecated: []
-  dependencies: []
-  resolvedDependencies: []
-  keywords:
-  - DI
-  - Dependency Injection
-  - DI Container
-  registry:
-    id: main
-    name: 
-    url: https://packages.unity.com
-    scopes: []
-    isDefault: 1
-    capabilities: 7
-    configSource: 0
-  hideInEditor: 1
-  isAssetStorePackage: 0
-  datePublishedTicks: 0
-  documentationUrl: https://vcontainer.hadashikick.jp/
-  hasRepository: 0
-  repository:
-    type: 
-    url: 
-    revision: 
-    path: 
-  unityLifecycle:
-    version: 
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0

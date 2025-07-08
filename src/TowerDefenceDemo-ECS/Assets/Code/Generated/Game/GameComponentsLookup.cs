@@ -12,28 +12,34 @@ public static class GameComponentsLookup {
     public const int Transform = 1;
     public const int View = 2;
     public const int WorldPosition = 3;
-    public const int EnemySpawnTimer = 4;
-    public const int Direction = 5;
-    public const int FinishedPath = 6;
-    public const int Moving = 7;
-    public const int ReachDistance = 8;
-    public const int Speed = 9;
-    public const int TargetPosition = 10;
+    public const int Enemy = 4;
+    public const int EnemySpawnTimer = 5;
+    public const int Direction = 6;
+    public const int FinishedPath = 7;
+    public const int Moving = 8;
+    public const int ReachDistance = 9;
+    public const int Speed = 10;
+    public const int TargetPosition = 11;
+    public const int CannonProjectile = 12;
+    public const int GuidedProjectile = 13;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 14;
 
     public static readonly string[] componentNames = {
         "Destroyed",
         "Transform",
         "View",
         "WorldPosition",
+        "Enemy",
         "EnemySpawnTimer",
         "Direction",
         "FinishedPath",
         "Moving",
         "ReachDistance",
         "Speed",
-        "TargetPosition"
+        "TargetPosition",
+        "CannonProjectile",
+        "GuidedProjectile"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -41,12 +47,15 @@ public static class GameComponentsLookup {
         typeof(Code.Common.TransformComponent),
         typeof(Code.Common.View),
         typeof(Code.Common.WorldPosition),
+        typeof(Code.Gameplay.Enemies.Enemy),
         typeof(Code.Gameplay.Enemies.EnemySpawnTimer),
         typeof(Code.Gameplay.Movement.Direction),
         typeof(Code.Gameplay.Movement.FinishedPath),
         typeof(Code.Gameplay.Movement.Moving),
         typeof(Code.Gameplay.Movement.ReachDistance),
         typeof(Code.Gameplay.Movement.Speed),
-        typeof(Code.Gameplay.Movement.TargetPosition)
+        typeof(Code.Gameplay.Movement.TargetPosition),
+        typeof(Code.Gameplay.Projectiles.CannonProjectile),
+        typeof(Code.Gameplay.Projectiles.GuidedProjectile)
     };
 }

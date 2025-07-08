@@ -1,17 +1,16 @@
-using Code.Common;
 using Entitas;
 using UnityEngine;
-using VContainer;
+using Zenject;
 
 namespace Code.Gameplay.Enemies.Systems
 {
     public class SpawnEnemySystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _entities;
-        private readonly EnemyFactory _enemyFactory;
+        private readonly IEnemyFactory _enemyFactory;
 
         [Inject]
-        public SpawnEnemySystem(EnemyFactory enemyFactory, GameContext game)
+        public SpawnEnemySystem(IEnemyFactory enemyFactory, GameContext game)
         {
             _enemyFactory = enemyFactory;
             

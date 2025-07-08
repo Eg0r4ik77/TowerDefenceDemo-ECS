@@ -1,13 +1,14 @@
 using Code.Common.Systems;
+using Code.Infrastructure.Systems;
 
 namespace Code.Common
 {
     public class CleanupDestroyedFeature : Feature
     {
-        public CleanupDestroyedFeature(GameContext gameContext)
+        public CleanupDestroyedFeature(ISystemFactory systemFactory)
         {
-            Add(new CleanupDestroyedGameViewSystem(gameContext));
-            Add(new CleanupDestroyedSystem(gameContext));
+            Add(systemFactory.Create<CleanupDestroyedGameViewSystem>());
+            Add(systemFactory.Create<CleanupDestroyedSystem>());
         }
     }
 }

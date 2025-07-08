@@ -1,49 +1,36 @@
-using Code.Gameplay.Enemies;
-using Code.Gameplay.Movement;
+using Code.Gameplay;
+using Code.Infrastructure.Systems;
 using UnityEngine;
+using Zenject;
 
 namespace Code.Common
 {
     public class EcsRunner : MonoBehaviour
     {
-        private MovementFeature _movementFeature;
-        private CleanupDestroyedFeature _cleanupDestroyedFeature;
-        private EnemyFeature _enemyFeature;
-        
-        public Transform _spawnPoint;
-        public EnemyFactory _enemyFactory;
+        private ISystemFactory _systemFactory;
+        private GameplayFeature _gameplayFeature;
 
+        [Inject]
+        private void Construct(ISystemFactory systemFactory)
+        {
+            _systemFactory = systemFactory;
+        }
+        
         private void Start()
         {
-            var context = Contexts.sharedInstance.game;
-            
-            _movementFeature = new MovementFeature(context);
-            _movementFeature.Initialize();
-            
-            _cleanupDestroyedFeature = new CleanupDestroyedFeature(context);
-            _cleanupDestroyedFeature.Initialize();
-            
-            _enemyFeature = new EnemyFeature(_enemyFactory, context);
-            _enemyFeature.Initialize();
+            _gameplayFeature = _systemFactory.Create<GameplayFeature>();
+            _gameplayFeature.Initialize();
         }
 
         private void Update()
         {
-            _movementFeature.Execute();
-            _movementFeature.Cleanup();
-            
-            _cleanupDestroyedFeature.Execute();
-            _cleanupDestroyedFeature.Cleanup();
-            
-            _enemyFeature.Execute();
-            _enemyFeature.Cleanup();
+            _gameplayFeature.Execute();
+            _gameplayFeature.Cleanup();
         }
 
         private void OnDestroy()
         {
-            _movementFeature.TearDown();
-            _cleanupDestroyedFeature.TearDown();
-            _enemyFeature.TearDown();
+            _gameplayFeature.TearDown();
         }
     }
 }

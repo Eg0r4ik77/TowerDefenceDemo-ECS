@@ -1,15 +1,16 @@
 using Code.Gameplay.Movement.Systems;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Movement
 {
     public sealed class MovementFeature : Feature
     {
-        public MovementFeature(GameContext gameContext)
+        public MovementFeature(ISystemFactory systemFactory)
         {
-            Add(new DirectionalMoveSystem(gameContext));
-            Add(new UpdateTransformPositionSystem(gameContext));
-            Add(new MovementToTargetPositionSystem(gameContext));
-            Add(new DestroyAfterFinishMovementToTargetSystem(gameContext));
+            Add(systemFactory.Create<DirectionalMoveSystem>());
+            Add(systemFactory.Create<UpdateTransformPositionSystem>());
+            Add(systemFactory.Create<MovementToTargetPositionSystem>());
+            Add(systemFactory.Create<DestroyAfterFinishMovementToTargetSystem>());
         }
     }
 }
