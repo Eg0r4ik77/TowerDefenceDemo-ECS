@@ -1,4 +1,5 @@
 using Code.Gameplay.Enemies;
+using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Systems;
 using Code.StaticData;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace Code.Infrastructure
             
             Container.BindInterfacesAndSelfTo<StaticDataService>().AsSingle();
             
+            Container.Bind<IIdentifierGenerator>().To<IdentifierGenerator>().AsSingle();
             Container.Bind<ISystemFactory>().To<SystemFactory>().AsSingle();
             Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
         }

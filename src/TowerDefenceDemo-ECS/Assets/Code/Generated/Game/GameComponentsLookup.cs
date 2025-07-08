@@ -10,26 +10,28 @@ public static class GameComponentsLookup {
 
     public const int BottomPoint = 0;
     public const int Destroyed = 1;
-    public const int Transform = 2;
-    public const int View = 3;
-    public const int WorldPosition = 4;
-    public const int Enemy = 5;
-    public const int EnemySpawnTimer = 6;
-    public const int Direction = 7;
-    public const int FinishedPath = 8;
-    public const int Moving = 9;
-    public const int ReachDistance = 10;
-    public const int Speed = 11;
-    public const int TargetPosition = 12;
-    public const int CannonProjectile = 13;
-    public const int GuidedProjectile = 14;
-    public const int ProjectileTargetId = 15;
+    public const int Id = 2;
+    public const int Transform = 3;
+    public const int View = 4;
+    public const int WorldPosition = 5;
+    public const int Enemy = 6;
+    public const int EnemySpawnTimer = 7;
+    public const int Direction = 8;
+    public const int FinishedPath = 9;
+    public const int Moving = 10;
+    public const int ReachDistance = 11;
+    public const int Speed = 12;
+    public const int TargetPosition = 13;
+    public const int CannonProjectile = 14;
+    public const int GuidedProjectile = 15;
+    public const int ProjectileTargetId = 16;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "BottomPoint",
         "Destroyed",
+        "Id",
         "Transform",
         "View",
         "WorldPosition",
@@ -49,6 +51,7 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Common.BottomPoint),
         typeof(Code.Common.Destroyed),
+        typeof(Code.Common.Id),
         typeof(Code.Common.TransformComponent),
         typeof(Code.Common.View),
         typeof(Code.Common.WorldPosition),

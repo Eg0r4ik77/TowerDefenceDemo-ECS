@@ -4,9 +4,9 @@ namespace Code.Infrastructure.View
 {
     public interface IEntityView
     {
-        GameEntity Entity { get; }
-        void SetEntity(GameEntity entity);
-        void ReleaseEntity();
+        public GameEntity Entity { get; }
+        public void SetEntity(GameEntity entity);
+        public void ReleaseEntity();
     
         GameObject gameObject { get; }
     }

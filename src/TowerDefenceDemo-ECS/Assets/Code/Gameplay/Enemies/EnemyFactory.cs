@@ -2,6 +2,7 @@ using System;
 using Code.Common.Extensions;
 using Code.Gameplay.Enemies.Data;
 using Code.Infrastructure;
+using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.View;
 using Code.StaticData;
 using UnityEngine;
@@ -13,14 +14,17 @@ namespace Code.Gameplay.Enemies
         private readonly GameContext _gameContext;
         private readonly IStaticDataService _staticDataService;
         private readonly LevelDataProvider _levelDataProvider;
+        private readonly IIdentifierGenerator _identifierGenerator;
 
         public EnemyFactory(GameContext gameContext,
             IStaticDataService staticDataService,
-            LevelDataProvider levelDataProvider)
+            LevelDataProvider levelDataProvider,
+            IIdentifierGenerator identifierGenerator)
         {
             _gameContext = gameContext;
             _staticDataService = staticDataService;
             _levelDataProvider = levelDataProvider;
+            _identifierGenerator = identifierGenerator;
         }
         
         public GameEntity CreateEnemy(EnemyType type, Vector3 position)
@@ -37,6 +41,7 @@ namespace Code.Gameplay.Enemies
              EnemyData data = _staticDataService.GetEnemyData(EnemyType.Simple);
 
              GameEntity entity = _gameContext.CreateEntity()
+                 .AddId(_identifierGenerator.GetId())
                  .AddSpeed(data.Speed)
                  .AddReachDistance(data.ReachDistance)
                  .AddWorldPosition(position)
@@ -47,7 +52,7 @@ namespace Code.Gameplay.Enemies
              EntityView view = UnityEngine.Object.Instantiate(data.View, entity.WorldPosition, Quaternion.identity);
              
              view.SetEntity(entity);
-            
+             
             return entity;
         }
     }
