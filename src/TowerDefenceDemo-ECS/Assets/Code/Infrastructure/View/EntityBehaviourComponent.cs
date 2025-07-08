@@ -1,19 +1,20 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Code.Infrastructure.View
 {
     public abstract class EntityBehaviourComponent : MonoBehaviour
     {
-        [SerializeField] private EntityBehaviour _entityBehaviour;
+        [SerializeField] private EntityView _entityView;
         
         public abstract void RegisterComponents();
         public abstract void UnregisterComponents();
 
-        public GameEntity Entity => _entityBehaviour != null ? _entityBehaviour.Entity : null;
+        public GameEntity Entity => _entityView != null ? _entityView.Entity : null;
         
         private void Awake()
         {
-            _entityBehaviour ??= GetComponent<EntityBehaviour>();
+            _entityView ??= GetComponent<EntityView>();
         }
     }
 }

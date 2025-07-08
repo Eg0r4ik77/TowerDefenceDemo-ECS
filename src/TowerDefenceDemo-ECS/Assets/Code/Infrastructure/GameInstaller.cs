@@ -1,14 +1,22 @@
 using Code.Gameplay.Enemies;
 using Code.Infrastructure.Systems;
+using Code.StaticData;
+using UnityEngine;
 using Zenject;
 
 namespace Code.Infrastructure
 {
     public class GameInstaller : MonoInstaller
     {
+        [SerializeField] private LevelDataProvider _levelDataProvider;
+        
         public override void InstallBindings()
         {
             Container.Bind<GameContext>().FromInstance(Contexts.sharedInstance.game).AsSingle();
+            Container.Bind<LevelDataProvider>().FromInstance(_levelDataProvider).AsSingle();
+            
+            Container.BindInterfacesAndSelfTo<StaticDataService>().AsSingle();
+            
             Container.Bind<ISystemFactory>().To<SystemFactory>().AsSingle();
             Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
         }

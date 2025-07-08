@@ -1,19 +1,26 @@
 using System;
-using Gameplay.Monster;
+using Code.Common.Extensions;
+using Code.Gameplay.Enemies.Data;
+using Code.Infrastructure;
+using Code.Infrastructure.View;
+using Code.StaticData;
 using UnityEngine;
 
 namespace Code.Gameplay.Enemies
 {
-    public class EnemyFactory : MonoBehaviour, IEnemyFactory
+    public class EnemyFactory : IEnemyFactory
     {
         private readonly GameContext _gameContext;
-        public MonsterData MonsterData;
-        public Transform SpawnPoint;
-        public Transform TargetPoint;
+        private readonly IStaticDataService _staticDataService;
+        private readonly LevelDataProvider _levelDataProvider;
 
-        public EnemyFactory(GameContext gameContext)
+        public EnemyFactory(GameContext gameContext,
+            IStaticDataService staticDataService,
+            LevelDataProvider levelDataProvider)
         {
             _gameContext = gameContext;
+            _staticDataService = staticDataService;
+            _levelDataProvider = levelDataProvider;
         }
         
         public GameEntity CreateEnemy(EnemyType type, Vector3 position)
@@ -25,20 +32,21 @@ namespace Code.Gameplay.Enemies
             };
         }
 
-        private GameEntity CreateSimple(Vector2 at)
+        private GameEntity CreateSimple(Vector3 position)
         {
-             var obj = Instantiate(MonsterData.View, SpawnPoint.position, Quaternion.identity);
-            
-             var entity = _gameContext.CreateEntity()
-                 .AddSpeed(MonsterData.Speed)
-                 .AddReachDistance(MonsterData.ReachDistance)
-                 .AddWorldPosition(SpawnPoint.position)
-                 .AddTargetPosition(TargetPoint.position);
-            
-             entity.isEnemy = true;
-             entity.isMoving = true;
-            
-             obj.SetEntity(entity);
+             EnemyData data = _staticDataService.GetEnemyData(EnemyType.Simple);
+
+             GameEntity entity = _gameContext.CreateEntity()
+                 .AddSpeed(data.Speed)
+                 .AddReachDistance(data.ReachDistance)
+                 .AddWorldPosition(position)
+                 .AddTargetPosition(_levelDataProvider.TargetPosition)
+                 .With(e => e.isEnemy = true)
+                 .With(e => e.isMoving = true);
+
+             EntityView view = UnityEngine.Object.Instantiate(data.View, entity.WorldPosition, Quaternion.identity);
+             
+             view.SetEntity(entity);
             
             return entity;
         }
