@@ -1,11 +1,7 @@
 using System;
 using Code.Common;
 using Code.Common.Extensions;
-using Code.Gameplay.Enemies;
-using Code.Gameplay.Enemies.Data;
-using Code.Infrastructure;
 using Code.Infrastructure.Identifiers;
-using Code.Infrastructure.View;
 using Code.StaticData;
 using UnityEngine;
 
@@ -43,24 +39,21 @@ namespace Code.Gameplay.Towers.Factory
             GameEntity entity = _gameContext.CreateEntity()
                 .AddId(_identifierGenerator.GetId())
                 .AddWorldPosition(position)
-                .AddTargetDetectionInterval(2)
-                .AddTargetDetectionTimer(2)
-                .AddTargetDetectionDistance(5)
+                .AddViewPrefab(data.Prefab)
+                .AddTargetDetectionInterval(data.TargetDetectionInterval)
+                .AddTargetDetectionTimer(data.TargetDetectionInterval)
+                .AddTargetDetectionDistance(data.TargetDetectionDistance)
                 .AddTargetDetectionLayerMask(EntityLayer.Enemy.AsMask())
                 .With(e => e.isNeedForDetection = true)
                 .With(e => e.isReadyForDetection = true)
                 .With(e => e.isFollowingTarget = true);
-
-            EntityView view = UnityEngine.Object.Instantiate(data.View, entity.WorldPosition, Quaternion.identity);
-             
-            view.SetEntity(entity);
-             
+            
             return entity;
         }
         
         private GameEntity CreateCannon(Vector3 position)
         {
-            return null;
+            return _gameContext.CreateEntity();
         }
     }
 }

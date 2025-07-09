@@ -10,6 +10,6 @@ namespace Code.Gameplay.Enemies.Data
         [field: SerializeField] public float Speed { get; private set; }
         [field: SerializeField] public int MaxHealth { get; private set; }
         [field: SerializeField] public float ReachDistance { get; private set; }
-        [field: SerializeField] public EntityView View { get; private set; }
+        [field: SerializeField] public GameObject Prefab { get; private set; }
     }
 }

@@ -7,10 +7,9 @@ namespace Code.Gameplay.Towers
     public class TowerData : ScriptableObject
     {
         [field: SerializeField] public TowerType Type { get; private set; }
-        [field: SerializeField] public EntityView View { get; private set; }
-        [field: SerializeField] public float FindTargetInterval { get; private set; }
+        [field: SerializeField] public GameObject Prefab { get; private set; }
+        [field: SerializeField] public float TargetDetectionInterval { get; private set; }
+        [field: SerializeField] public float TargetDetectionDistance { get; private set; }
         [field: SerializeField] public float AttackTimeInterval { get; private set; }
-        [field: SerializeField] public float Range { get; private set; }
-        [field: SerializeField] public bool FollowTarget { get; private set; }
     }
 }

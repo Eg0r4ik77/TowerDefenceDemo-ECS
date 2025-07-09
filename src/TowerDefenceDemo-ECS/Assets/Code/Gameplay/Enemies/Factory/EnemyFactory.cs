@@ -44,16 +44,13 @@ namespace Code.Gameplay.Enemies
              GameEntity entity = _gameContext.CreateEntity()
                  .AddId(_identifierGenerator.GetId())
                  .AddLayer(EntityLayer.Enemy)
+                 .AddWorldPosition(position)
+                 .AddViewPrefab(data.Prefab)
                  .AddSpeed(data.Speed)
                  .AddReachDistance(data.ReachDistance)
-                 .AddWorldPosition(position)
                  .AddFinishPosition(_levelDataProvider.TargetPosition)
                  .With(e => e.isEnemy = true)
                  .With(e => e.isMoving = true);
-
-             EntityView view = UnityEngine.Object.Instantiate(data.View, entity.WorldPosition, Quaternion.identity);
-             
-             view.SetEntity(entity);
              
             return entity;
         }

@@ -3,6 +3,7 @@ using Code.Gameplay.Enemies;
 using Code.Gameplay.Movement;
 using Code.Gameplay.TargetDetection;
 using Code.Infrastructure.Systems;
+using Code.Infrastructure.View;
 
 namespace Code.Gameplay
 {
@@ -10,6 +11,7 @@ namespace Code.Gameplay
     {
         public GameplayFeature(ISystemFactory systemFactory)
         {
+            Add(systemFactory.Create<BindViewFeature>());
             Add(systemFactory.Create<MovementFeature>());
             Add(systemFactory.Create<EnemyFeature>());
             Add(systemFactory.Create<TargetDetectionFeature>());

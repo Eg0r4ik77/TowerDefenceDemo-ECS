@@ -14,28 +14,29 @@ public static class GameComponentsLookup {
     public const int Layer = 3;
     public const int Transform = 4;
     public const int View = 5;
-    public const int WorldPosition = 6;
-    public const int Enemy = 7;
-    public const int EnemySpawnTimer = 8;
-    public const int Direction = 9;
-    public const int FinishedPath = 10;
-    public const int FinishPosition = 11;
-    public const int Moving = 12;
-    public const int ReachDistance = 13;
-    public const int Speed = 14;
-    public const int CannonProjectile = 15;
-    public const int GuidedProjectile = 16;
-    public const int ProjectileTargetId = 17;
-    public const int FollowingTarget = 18;
-    public const int NeedForDetection = 19;
-    public const int ReadyForDetection = 20;
-    public const int TargetDetectionDistance = 21;
-    public const int TargetDetectionInterval = 22;
-    public const int TargetDetectionLayerMask = 23;
-    public const int TargetDetectionTimer = 24;
-    public const int TargetId = 25;
+    public const int ViewPrefab = 6;
+    public const int WorldPosition = 7;
+    public const int Enemy = 8;
+    public const int EnemySpawnTimer = 9;
+    public const int Direction = 10;
+    public const int FinishedPath = 11;
+    public const int FinishPosition = 12;
+    public const int Moving = 13;
+    public const int ReachDistance = 14;
+    public const int Speed = 15;
+    public const int CannonProjectile = 16;
+    public const int GuidedProjectile = 17;
+    public const int ProjectileTargetId = 18;
+    public const int FollowingTarget = 19;
+    public const int NeedForDetection = 20;
+    public const int ReadyForDetection = 21;
+    public const int TargetDetectionDistance = 22;
+    public const int TargetDetectionInterval = 23;
+    public const int TargetDetectionLayerMask = 24;
+    public const int TargetDetectionTimer = 25;
+    public const int TargetId = 26;
 
-    public const int TotalComponents = 26;
+    public const int TotalComponents = 27;
 
     public static readonly string[] componentNames = {
         "BottomPoint",
@@ -44,6 +45,7 @@ public static class GameComponentsLookup {
         "Layer",
         "Transform",
         "View",
+        "ViewPrefab",
         "WorldPosition",
         "Enemy",
         "EnemySpawnTimer",
@@ -73,6 +75,7 @@ public static class GameComponentsLookup {
         typeof(Code.Common.Layer),
         typeof(Code.Common.TransformComponent),
         typeof(Code.Common.View),
+        typeof(Code.Common.ViewPrefab),
         typeof(Code.Common.WorldPosition),
         typeof(Code.Gameplay.Enemies.Enemy),
         typeof(Code.Gameplay.Enemies.EnemySpawnTimer),
