@@ -36,7 +36,7 @@ namespace Code.Gameplay.Enemies.Systems
                 {
                     entity.ReplaceEnemySpawnTimer(_interval);
                     
-                    _enemyFactory.CreateEnemy(_enemyType, _spawnPosition);
+                    _enemyFactory.Create(_enemyType, _spawnPosition);
                 }
 
                 entity.ReplaceEnemySpawnTimer(entity.EnemySpawnTimer - Time.deltaTime);

@@ -9,16 +9,16 @@ namespace Code.Gameplay.Movement.Systems
 
         public MovementToTargetPositionSystem(GameContext game)
         {
-            _movers = game.GetGroup(GameMatcher.AllOf(GameMatcher.Moving, GameMatcher.TargetPosition));
+            _movers = game.GetGroup(GameMatcher.AllOf(GameMatcher.Moving, GameMatcher.FinishPosition));
         }
 
         public void Execute()
         {
             foreach (GameEntity mover in _movers)
             {
-                mover.ReplaceDirection((mover.TargetPosition-mover.WorldPosition).normalized);
+                mover.ReplaceDirection((mover.FinishPosition - mover.WorldPosition).normalized);
                 
-                if (Vector3.Distance(mover.WorldPosition, mover.TargetPosition) <= mover.ReachDistance)
+                if (Vector3.Distance(mover.WorldPosition, mover.FinishPosition) <= mover.ReachDistance)
                 {
                     mover.isFinishedPath = true;
                 }

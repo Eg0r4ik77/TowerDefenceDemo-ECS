@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 542.4
     height: 818.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 100
+  controlID: 38
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -121,8 +121,8 @@ MonoBehaviour:
     y: 523.2
     width: 993.6
     height: 295.59998
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 49
+  controlID: 39
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -343,7 +343,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 95}
     m_SelectedIDs: 724c0000
     m_LastClickedID: 19570
-    m_ExpandedIDs: 00000000464c0000484c00004a4c00004c4c00004e4c0000
+    m_ExpandedIDs: 00000000564c0000584c00005a4c00005c4c00005e4c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -371,7 +371,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000464c0000484c00004a4c00004c4c00004e4c0000
+    m_ExpandedIDs: 00000000564c0000584c00005a4c00005c4c00005e4c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -473,7 +473,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Enemies
+    - Assets/Resources/Data/Towers
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -481,16 +481,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Enemies
+  - Assets/Resources/Data/Towers
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\egor\Desktop\UnityProjects\TowerDefenceDemo-ECS\src\TowerDefenceDemo-ECS
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 145.40002}
-    m_SelectedIDs: 7c4c0000
-    m_LastClickedID: 19580
-    m_ExpandedIDs: 00000000464c0000484c00004a4c00004c4c00004e4c000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 289.40002}
+    m_SelectedIDs: a04d0000
+    m_LastClickedID: 19872
+    m_ExpandedIDs: 00000000564c0000584c00005a4c00005c4c00005e4c0000064d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -518,7 +518,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000464c0000484c00004a4c00004c4c00004e4c0000
+    m_ExpandedIDs: 00000000564c0000584c00005a4c00005c4c00005e4c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -543,9 +543,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 184b0000
-    m_LastClickedInstanceID: 19224
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: c24a0000
+    m_LastClickedInstanceID: 19138
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -660,9 +660,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 184b0000
-      m_LastClickedID: 19224
-      m_ExpandedIDs: 2efbffff
+      m_SelectedIDs: c24a0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 54d4ffffc6dbffffaae0ffff22fbfffff4ffffff384b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1108,9 +1108,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -5.273012, y: -6.5078588, z: -6.9905834}
+    m_Target: {x: 1.954462, y: -6.5078645, z: -8.025328}
     speed: 2
-    m_Value: {x: -5.273012, y: -6.5078588, z: -6.9905834}
+    m_Value: {x: 1.954462, y: -6.5078645, z: -8.025328}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1156,9 +1156,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.025635924, y: 0.97255516, z: -0.1908867, w: -0.13061252}
+    m_Target: {x: -0.001675687, y: 0.9812495, z: -0.19259322, w: -0.008536633}
     speed: 2
-    m_Value: {x: -0.025635691, y: 0.97254634, z: -0.19088498, w: -0.13061135}
+    m_Value: {x: -0.0016756717, y: 0.9812405, z: -0.19259144, w: -0.008536555}
   m_Size:
     m_Target: 15.838542
     speed: 2

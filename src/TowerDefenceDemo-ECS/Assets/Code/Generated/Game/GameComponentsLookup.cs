@@ -11,27 +11,37 @@ public static class GameComponentsLookup {
     public const int BottomPoint = 0;
     public const int Destroyed = 1;
     public const int Id = 2;
-    public const int Transform = 3;
-    public const int View = 4;
-    public const int WorldPosition = 5;
-    public const int Enemy = 6;
-    public const int EnemySpawnTimer = 7;
-    public const int Direction = 8;
-    public const int FinishedPath = 9;
-    public const int Moving = 10;
-    public const int ReachDistance = 11;
-    public const int Speed = 12;
-    public const int TargetPosition = 13;
-    public const int CannonProjectile = 14;
-    public const int GuidedProjectile = 15;
-    public const int ProjectileTargetId = 16;
+    public const int Layer = 3;
+    public const int Transform = 4;
+    public const int View = 5;
+    public const int WorldPosition = 6;
+    public const int Enemy = 7;
+    public const int EnemySpawnTimer = 8;
+    public const int Direction = 9;
+    public const int FinishedPath = 10;
+    public const int FinishPosition = 11;
+    public const int Moving = 12;
+    public const int ReachDistance = 13;
+    public const int Speed = 14;
+    public const int CannonProjectile = 15;
+    public const int GuidedProjectile = 16;
+    public const int ProjectileTargetId = 17;
+    public const int FollowingTarget = 18;
+    public const int NeedForDetection = 19;
+    public const int ReadyForDetection = 20;
+    public const int TargetDetectionDistance = 21;
+    public const int TargetDetectionInterval = 22;
+    public const int TargetDetectionLayerMask = 23;
+    public const int TargetDetectionTimer = 24;
+    public const int TargetId = 25;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 26;
 
     public static readonly string[] componentNames = {
         "BottomPoint",
         "Destroyed",
         "Id",
+        "Layer",
         "Transform",
         "View",
         "WorldPosition",
@@ -39,19 +49,28 @@ public static class GameComponentsLookup {
         "EnemySpawnTimer",
         "Direction",
         "FinishedPath",
+        "FinishPosition",
         "Moving",
         "ReachDistance",
         "Speed",
-        "TargetPosition",
         "CannonProjectile",
         "GuidedProjectile",
-        "ProjectileTargetId"
+        "ProjectileTargetId",
+        "FollowingTarget",
+        "NeedForDetection",
+        "ReadyForDetection",
+        "TargetDetectionDistance",
+        "TargetDetectionInterval",
+        "TargetDetectionLayerMask",
+        "TargetDetectionTimer",
+        "TargetId"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Common.BottomPoint),
         typeof(Code.Common.Destroyed),
         typeof(Code.Common.Id),
+        typeof(Code.Common.Layer),
         typeof(Code.Common.TransformComponent),
         typeof(Code.Common.View),
         typeof(Code.Common.WorldPosition),
@@ -59,12 +78,20 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Enemies.EnemySpawnTimer),
         typeof(Code.Gameplay.Movement.Direction),
         typeof(Code.Gameplay.Movement.FinishedPath),
+        typeof(Code.Gameplay.Movement.FinishPosition),
         typeof(Code.Gameplay.Movement.Moving),
         typeof(Code.Gameplay.Movement.ReachDistance),
         typeof(Code.Gameplay.Movement.Speed),
-        typeof(Code.Gameplay.Movement.TargetPosition),
         typeof(Code.Gameplay.Projectiles.CannonProjectile),
         typeof(Code.Gameplay.Projectiles.GuidedProjectile),
-        typeof(Code.Gameplay.Projectiles.ProjectileTargetId)
+        typeof(Code.Gameplay.Projectiles.ProjectileTargetId),
+        typeof(Code.Gameplay.TargetDetection.FollowingTarget),
+        typeof(Code.Gameplay.TargetDetection.NeedForDetection),
+        typeof(Code.Gameplay.TargetDetection.ReadyForDetection),
+        typeof(Code.Gameplay.TargetDetection.TargetDetectionDistance),
+        typeof(Code.Gameplay.TargetDetection.TargetDetectionInterval),
+        typeof(Code.Gameplay.TargetDetection.TargetDetectionLayerMask),
+        typeof(Code.Gameplay.TargetDetection.TargetDetectionTimer),
+        typeof(Code.Gameplay.TargetDetection.TargetId)
     };
 }

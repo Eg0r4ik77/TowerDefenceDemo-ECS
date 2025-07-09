@@ -10,5 +10,7 @@ namespace Code.Common
     [Game] public class View : IComponent { public IEntityView Value; }
     [Game] public class TransformComponent : IComponent { public Transform Value; }
     [Game] public class BottomPoint : IComponent { public Transform Value; }
+    [Game] public class Layer : IComponent { public EntityLayer Value; }
+
     [Game] public class Destroyed : IComponent { }
 }
