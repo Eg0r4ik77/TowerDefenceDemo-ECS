@@ -1,6 +1,7 @@
 using System;
 using Code.Common;
 using Code.Common.Extensions;
+using Code.Gameplay.Cooldowns;
 using Code.Infrastructure.Identifiers;
 using Code.StaticData;
 using UnityEngine;
@@ -28,7 +29,7 @@ namespace Code.Gameplay.Towers.Factory
             {
                 TowerType.Simple => CreateSimple(position),
                 TowerType.Cannon => CreateCannon(position),
-                _ => throw new Exception($"Enemy with type {type} does not exist")
+                _ => throw new Exception($"Tower with type {type} does not exist")
             };
         }
 
@@ -44,16 +45,35 @@ namespace Code.Gameplay.Towers.Factory
                 .AddTargetDetectionTimer(data.TargetDetectionInterval)
                 .AddTargetDetectionDistance(data.TargetDetectionDistance)
                 .AddTargetDetectionLayerMask(EntityLayer.Enemy.AsMask())
+                .AddCooldown(data.Cooldown)
+                .PutOnCooldown()
+                .With(e => e.isSimpleTower = true)
                 .With(e => e.isNeedForDetection = true)
-                .With(e => e.isReadyForDetection = true)
-                .With(e => e.isFollowingTarget = true);
+                .With(e => e.isReadyForDetection = true);
             
             return entity;
         }
         
         private GameEntity CreateCannon(Vector3 position)
         {
-            return _gameContext.CreateEntity();
+            TowerData data = _staticDataService.GetTowerData(TowerType.Cannon);
+
+            GameEntity entity = _gameContext.CreateEntity()
+                .AddId(_identifierGenerator.GetId())
+                .AddWorldPosition(position)
+                .AddViewPrefab(data.Prefab)
+                .AddTargetDetectionInterval(data.TargetDetectionInterval)
+                .AddTargetDetectionTimer(data.TargetDetectionInterval)
+                .AddTargetDetectionDistance(data.TargetDetectionDistance)
+                .AddTargetDetectionLayerMask(EntityLayer.Enemy.AsMask())
+                .AddCooldown(data.Cooldown)
+                .PutOnCooldown()
+                .With(e => e.isCannonTower = true)
+                .With(e => e.isNeedForDetection = true)
+                .With(e => e.isReadyForDetection = true)
+                .With(e => e.isFollowingTarget = true);
+            
+            return entity;
         }
     }
 }

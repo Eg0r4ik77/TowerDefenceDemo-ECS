@@ -13,7 +13,7 @@ namespace Code.Gameplay.Enemies.Systems
         
         public void Initialize()
         {
-            _gameContext.CreateEntity().AddEnemySpawnTimer(3);
+            _gameContext.CreateEntity().AddEnemySpawnTimer(0);
         }
     }
 }

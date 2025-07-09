@@ -1,5 +1,6 @@
 using Code.Gameplay.Enemies;
 using Code.Gameplay.Enemies.Data;
+using Code.Gameplay.Projectiles;
 using Code.Gameplay.Towers;
 
 namespace Code.StaticData
@@ -10,5 +11,6 @@ namespace Code.StaticData
         public EnemyData GetEnemyData(EnemyType type);
         public EnemySpawnerData GetEnemySpawnerData();
         public TowerData GetTowerData(TowerType type);
+        public ProjectileData GetProjectileData(ProjectileType type);
     }
 }

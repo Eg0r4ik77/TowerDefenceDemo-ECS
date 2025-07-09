@@ -48,7 +48,7 @@ namespace Code.Gameplay.Enemies
                  .AddViewPrefab(data.Prefab)
                  .AddSpeed(data.Speed)
                  .AddReachDistance(data.ReachDistance)
-                 .AddFinishPosition(_levelDataProvider.TargetPosition)
+                 .AddTargetPosition(_levelDataProvider.TargetPosition)
                  .With(e => e.isEnemy = true)
                  .With(e => e.isMoving = true);
              

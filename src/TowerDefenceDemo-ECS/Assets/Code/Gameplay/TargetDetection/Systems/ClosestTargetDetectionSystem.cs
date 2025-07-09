@@ -48,7 +48,6 @@ namespace Code.Gameplay.TargetDetection.Systems
 
                 if (closestTarget != null)
                 {
-                    Debug.Log(closestTarget.Id);
                     detector.ReplaceTargetId(closestTarget.Id);
                 }
 

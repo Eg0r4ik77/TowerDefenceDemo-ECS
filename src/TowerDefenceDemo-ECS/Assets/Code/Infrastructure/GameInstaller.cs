@@ -1,4 +1,5 @@
 using Code.Gameplay.Enemies;
+using Code.Gameplay.Projectiles.Factory;
 using Code.Gameplay.Towers.Factory;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Systems;
@@ -24,6 +25,7 @@ namespace Code.Infrastructure
             Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
             Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
             Container.Bind<ITowerFactory>().To<TowerFactory>().AsSingle();
+            Container.Bind<IProjectileFactory>().To<ProjectileFactory>().AsSingle();
         }
     }
 }

@@ -22,9 +22,9 @@ namespace Code.Gameplay.Towers
         {
             EntityView view = GetComponent<EntityView>();
             GameEntity tower = _factory.Create(_type, transform.position);
-            
-            if(view != null) 
-                tower.AddView(view);
+
+            if (view != null)
+                view.SetEntity(tower);
         }
         
     }

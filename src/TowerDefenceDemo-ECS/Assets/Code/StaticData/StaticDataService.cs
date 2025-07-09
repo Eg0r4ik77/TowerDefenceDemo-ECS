@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Code.Gameplay.Enemies;
 using Code.Gameplay.Enemies.Data;
+using Code.Gameplay.Projectiles;
 using Code.Gameplay.Towers;
 using UnityEngine;
 using Zenject;
@@ -13,6 +14,7 @@ namespace Code.StaticData
     {
         private Dictionary<EnemyType, EnemyData> _enemyDataByType;
         private Dictionary<TowerType, TowerData> _towerDataByType;
+        private Dictionary<ProjectileType, ProjectileData> _projectileDataByType;
         private EnemySpawnerData _enemySpawnerData;
         
         public void Initialize()
@@ -25,6 +27,7 @@ namespace Code.StaticData
             LoadEnemyData();
             LoadEnemySpawnerData();
             LoadTowerData();
+            LoadProjectileData();
         }
 
         public EnemyData GetEnemyData(EnemyType type) => _enemyDataByType.TryGetValue(type, out EnemyData data)
@@ -39,6 +42,10 @@ namespace Code.StaticData
             ? data
             : throw new Exception($"Data for tower {type} was not found");
         
+        public ProjectileData GetProjectileData(ProjectileType type)=> _projectileDataByType.TryGetValue(type, out ProjectileData data)
+            ? data
+            : throw new Exception($"Data for projectile {type} was not found");
+        
         private void LoadEnemyData()
         {
             _enemyDataByType = Resources.LoadAll<EnemyData>("Data/Enemies")
@@ -52,6 +59,12 @@ namespace Code.StaticData
         private void LoadTowerData()
         {
             _towerDataByType = Resources.LoadAll<TowerData>("Data/Towers")
+                .ToDictionary(data => data.Type, data => data);
+        }
+        
+        private void LoadProjectileData()
+        {
+            _projectileDataByType = Resources.LoadAll<ProjectileData>("Data/Projectiles")
                 .ToDictionary(data => data.Type, data => data);
         }
     }

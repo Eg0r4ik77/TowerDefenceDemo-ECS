@@ -18,25 +18,30 @@ public static class GameComponentsLookup {
     public const int WorldPosition = 7;
     public const int Enemy = 8;
     public const int EnemySpawnTimer = 9;
-    public const int Direction = 10;
-    public const int FinishedPath = 11;
-    public const int FinishPosition = 12;
-    public const int Moving = 13;
-    public const int ReachDistance = 14;
-    public const int Speed = 15;
-    public const int CannonProjectile = 16;
-    public const int GuidedProjectile = 17;
-    public const int ProjectileTargetId = 18;
-    public const int FollowingTarget = 19;
-    public const int NeedForDetection = 20;
-    public const int ReadyForDetection = 21;
-    public const int TargetDetectionDistance = 22;
-    public const int TargetDetectionInterval = 23;
-    public const int TargetDetectionLayerMask = 24;
-    public const int TargetDetectionTimer = 25;
-    public const int TargetId = 26;
+    public const int Cooldown = 10;
+    public const int CooldownLeft = 11;
+    public const int CooldownUp = 12;
+    public const int Direction = 13;
+    public const int FinishedPath = 14;
+    public const int MovementToTransform = 15;
+    public const int Moving = 16;
+    public const int ParabolicMovement = 17;
+    public const int ReachDistance = 18;
+    public const int Speed = 19;
+    public const int TargetPosition = 20;
+    public const int FollowingTarget = 21;
+    public const int NeedForDetection = 22;
+    public const int ReadyForDetection = 23;
+    public const int TargetDetectionDistance = 24;
+    public const int TargetDetectionInterval = 25;
+    public const int TargetDetectionLayerMask = 26;
+    public const int TargetDetectionTimer = 27;
+    public const int TargetId = 28;
+    public const int AttackSpawnPoint = 29;
+    public const int CannonTower = 30;
+    public const int SimpleTower = 31;
 
-    public const int TotalComponents = 27;
+    public const int TotalComponents = 32;
 
     public static readonly string[] componentNames = {
         "BottomPoint",
@@ -49,15 +54,17 @@ public static class GameComponentsLookup {
         "WorldPosition",
         "Enemy",
         "EnemySpawnTimer",
+        "Cooldown",
+        "CooldownLeft",
+        "CooldownUp",
         "Direction",
         "FinishedPath",
-        "FinishPosition",
+        "MovementToTransform",
         "Moving",
+        "ParabolicMovement",
         "ReachDistance",
         "Speed",
-        "CannonProjectile",
-        "GuidedProjectile",
-        "ProjectileTargetId",
+        "TargetPosition",
         "FollowingTarget",
         "NeedForDetection",
         "ReadyForDetection",
@@ -65,7 +72,10 @@ public static class GameComponentsLookup {
         "TargetDetectionInterval",
         "TargetDetectionLayerMask",
         "TargetDetectionTimer",
-        "TargetId"
+        "TargetId",
+        "AttackSpawnPoint",
+        "CannonTower",
+        "SimpleTower"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -79,15 +89,17 @@ public static class GameComponentsLookup {
         typeof(Code.Common.WorldPosition),
         typeof(Code.Gameplay.Enemies.Enemy),
         typeof(Code.Gameplay.Enemies.EnemySpawnTimer),
+        typeof(Code.Gameplay.Features.Cooldowns.Cooldown),
+        typeof(Code.Gameplay.Features.Cooldowns.CooldownLeft),
+        typeof(Code.Gameplay.Features.Cooldowns.CooldownUp),
         typeof(Code.Gameplay.Movement.Direction),
         typeof(Code.Gameplay.Movement.FinishedPath),
-        typeof(Code.Gameplay.Movement.FinishPosition),
+        typeof(Code.Gameplay.Movement.MovementToTransform),
         typeof(Code.Gameplay.Movement.Moving),
+        typeof(Code.Gameplay.Movement.ParabolicMovement),
         typeof(Code.Gameplay.Movement.ReachDistance),
         typeof(Code.Gameplay.Movement.Speed),
-        typeof(Code.Gameplay.Projectiles.CannonProjectile),
-        typeof(Code.Gameplay.Projectiles.GuidedProjectile),
-        typeof(Code.Gameplay.Projectiles.ProjectileTargetId),
+        typeof(Code.Gameplay.Movement.TargetPosition),
         typeof(Code.Gameplay.TargetDetection.FollowingTarget),
         typeof(Code.Gameplay.TargetDetection.NeedForDetection),
         typeof(Code.Gameplay.TargetDetection.ReadyForDetection),
@@ -95,6 +107,9 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.TargetDetection.TargetDetectionInterval),
         typeof(Code.Gameplay.TargetDetection.TargetDetectionLayerMask),
         typeof(Code.Gameplay.TargetDetection.TargetDetectionTimer),
-        typeof(Code.Gameplay.TargetDetection.TargetId)
+        typeof(Code.Gameplay.TargetDetection.TargetId),
+        typeof(Code.Gameplay.Towers.AttackSpawnPoint),
+        typeof(Code.Gameplay.Towers.CannonTowerComponent),
+        typeof(Code.Gameplay.Towers.SimpleTowerComponent)
     };
 }
