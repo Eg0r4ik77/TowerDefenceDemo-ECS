@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int BottomPoint = 0;
+    public const int AdjustTransformWithSpawnPoint = 0;
     public const int Destroyed = 1;
     public const int Health = 2;
     public const int Id = 3;
@@ -16,42 +16,43 @@ public static class GameComponentsLookup {
     public const int MaxHealth = 5;
     public const int Rigidbody = 6;
     public const int SelfDestructTimer = 7;
-    public const int Transform = 8;
-    public const int View = 9;
-    public const int ViewPrefab = 10;
-    public const int WorldPosition = 11;
-    public const int Damage = 12;
-    public const int DamageEffect = 13;
-    public const int Enemy = 14;
-    public const int EnemySpawnTimer = 15;
-    public const int Cooldown = 16;
-    public const int CooldownLeft = 17;
-    public const int CooldownUp = 18;
-    public const int Direction = 19;
-    public const int FinishedPath = 20;
-    public const int MovementByRigidbody = 21;
-    public const int MovementToTransform = 22;
-    public const int Moving = 23;
-    public const int ParabolicMovement = 24;
-    public const int ReachDistance = 25;
-    public const int Speed = 26;
-    public const int TargetPosition = 27;
-    public const int FollowingTarget = 28;
-    public const int NeedForDetection = 29;
-    public const int ReadyForDetection = 30;
-    public const int TargetDetectionDistance = 31;
-    public const int TargetDetectionInterval = 32;
-    public const int TargetDetectionLayerMask = 33;
-    public const int TargetDetectionTimer = 34;
-    public const int TargetId = 35;
-    public const int AttackSpawnPoint = 36;
-    public const int CannonTower = 37;
-    public const int SimpleTower = 38;
+    public const int SpawnPoint = 8;
+    public const int Transform = 9;
+    public const int View = 10;
+    public const int ViewPrefab = 11;
+    public const int WorldPosition = 12;
+    public const int Damage = 13;
+    public const int DamageEffect = 14;
+    public const int Enemy = 15;
+    public const int EnemySpawnTimer = 16;
+    public const int Cooldown = 17;
+    public const int CooldownLeft = 18;
+    public const int CooldownUp = 19;
+    public const int Direction = 20;
+    public const int FinishedPath = 21;
+    public const int MovementByRigidbody = 22;
+    public const int MovementToTransform = 23;
+    public const int Moving = 24;
+    public const int ParabolicMovement = 25;
+    public const int ReachDistance = 26;
+    public const int Speed = 27;
+    public const int TargetPosition = 28;
+    public const int FollowingTarget = 29;
+    public const int NeedForDetection = 30;
+    public const int ReadyForDetection = 31;
+    public const int TargetDetectionDistance = 32;
+    public const int TargetDetectionInterval = 33;
+    public const int TargetDetectionLayerMask = 34;
+    public const int TargetDetectionTimer = 35;
+    public const int TargetId = 36;
+    public const int AttackSpawnPoint = 37;
+    public const int CannonTower = 38;
+    public const int SimpleTower = 39;
 
-    public const int TotalComponents = 39;
+    public const int TotalComponents = 40;
 
     public static readonly string[] componentNames = {
-        "BottomPoint",
+        "AdjustTransformWithSpawnPoint",
         "Destroyed",
         "Health",
         "Id",
@@ -59,6 +60,7 @@ public static class GameComponentsLookup {
         "MaxHealth",
         "Rigidbody",
         "SelfDestructTimer",
+        "SpawnPoint",
         "Transform",
         "View",
         "ViewPrefab",
@@ -93,7 +95,7 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.Common.BottomPoint),
+        typeof(Code.Common.AdjustTransformWithSpawnPoint),
         typeof(Code.Common.Destroyed),
         typeof(Code.Common.Health),
         typeof(Code.Common.Id),
@@ -101,6 +103,7 @@ public static class GameComponentsLookup {
         typeof(Code.Common.MaxHealth),
         typeof(Code.Common.RigidbodyComponent),
         typeof(Code.Common.SelfDestructTimer),
+        typeof(Code.Common.SpawnPoint),
         typeof(Code.Common.TransformComponent),
         typeof(Code.Common.View),
         typeof(Code.Common.ViewPrefab),

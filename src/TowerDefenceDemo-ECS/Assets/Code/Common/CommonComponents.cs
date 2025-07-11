@@ -10,10 +10,11 @@ namespace Code.Common
     
     [Game] public class View : IComponent { public IEntityView Value; }
     [Game] public class ViewPrefab : IComponent { public GameObject Value; }
+    [Game] public class AdjustTransformWithSpawnPoint : IComponent { }
+    [Game] public class SpawnPoint : IComponent { public Transform Value; }
     
     [Game] public class TransformComponent : IComponent { public Transform Value; }
     [Game] public class RigidbodyComponent : IComponent { public Rigidbody Value; }
-    [Game] public class BottomPoint : IComponent { public Transform Value; }
     [Game] public class Layer : IComponent { public EntityLayer Value; }
     
     [Game] public class Health : IComponent { public float Value; }

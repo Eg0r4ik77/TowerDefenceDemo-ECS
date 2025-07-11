@@ -50,6 +50,7 @@ namespace Code.Gameplay.Enemies
                  .AddReachDistance(data.ReachDistance)
                  .AddTargetPosition(_levelDataProvider.TargetPosition)
                  .With(e => e.isEnemy = true)
+                 .With(e => e.isAdjustTransformWithSpawnPoint = true)
                  .With(e => e.isMoving = true)
                  .With(e => e.isMovementByRigidbody = true);
              
