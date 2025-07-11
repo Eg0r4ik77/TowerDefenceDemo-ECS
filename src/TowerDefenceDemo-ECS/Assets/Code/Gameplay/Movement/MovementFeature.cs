@@ -11,7 +11,7 @@ namespace Code.Gameplay.Movement
             Add(systemFactory.Create<ParabolicMovementSystem>());
             Add(systemFactory.Create<MovementToTargetPositionSystem>());
             Add(systemFactory.Create<DirectionalMoveSystem>());
-            Add(systemFactory.Create<UpdateTransformPositionSystem>());
+            Add(systemFactory.Create<UpdateRigidbodyPositionSystem>());
             Add(systemFactory.Create<UpdatePositionWithBottomPoint>());
             Add(systemFactory.Create<DestroyAfterFinishMovementToTargetSystem>());
         }

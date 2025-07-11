@@ -14,39 +14,41 @@ public static class GameComponentsLookup {
     public const int Id = 3;
     public const int Layer = 4;
     public const int MaxHealth = 5;
-    public const int SelfDestructTimer = 6;
-    public const int Transform = 7;
-    public const int View = 8;
-    public const int ViewPrefab = 9;
-    public const int WorldPosition = 10;
-    public const int Damage = 11;
-    public const int DamageEffect = 12;
-    public const int Enemy = 13;
-    public const int EnemySpawnTimer = 14;
-    public const int Cooldown = 15;
-    public const int CooldownLeft = 16;
-    public const int CooldownUp = 17;
-    public const int Direction = 18;
-    public const int FinishedPath = 19;
-    public const int MovementToTransform = 20;
-    public const int Moving = 21;
-    public const int ParabolicMovement = 22;
-    public const int ReachDistance = 23;
-    public const int Speed = 24;
-    public const int TargetPosition = 25;
-    public const int FollowingTarget = 26;
-    public const int NeedForDetection = 27;
-    public const int ReadyForDetection = 28;
-    public const int TargetDetectionDistance = 29;
-    public const int TargetDetectionInterval = 30;
-    public const int TargetDetectionLayerMask = 31;
-    public const int TargetDetectionTimer = 32;
-    public const int TargetId = 33;
-    public const int AttackSpawnPoint = 34;
-    public const int CannonTower = 35;
-    public const int SimpleTower = 36;
+    public const int Rigidbody = 6;
+    public const int SelfDestructTimer = 7;
+    public const int Transform = 8;
+    public const int View = 9;
+    public const int ViewPrefab = 10;
+    public const int WorldPosition = 11;
+    public const int Damage = 12;
+    public const int DamageEffect = 13;
+    public const int Enemy = 14;
+    public const int EnemySpawnTimer = 15;
+    public const int Cooldown = 16;
+    public const int CooldownLeft = 17;
+    public const int CooldownUp = 18;
+    public const int Direction = 19;
+    public const int FinishedPath = 20;
+    public const int MovementByRigidbody = 21;
+    public const int MovementToTransform = 22;
+    public const int Moving = 23;
+    public const int ParabolicMovement = 24;
+    public const int ReachDistance = 25;
+    public const int Speed = 26;
+    public const int TargetPosition = 27;
+    public const int FollowingTarget = 28;
+    public const int NeedForDetection = 29;
+    public const int ReadyForDetection = 30;
+    public const int TargetDetectionDistance = 31;
+    public const int TargetDetectionInterval = 32;
+    public const int TargetDetectionLayerMask = 33;
+    public const int TargetDetectionTimer = 34;
+    public const int TargetId = 35;
+    public const int AttackSpawnPoint = 36;
+    public const int CannonTower = 37;
+    public const int SimpleTower = 38;
 
-    public const int TotalComponents = 37;
+    public const int TotalComponents = 39;
 
     public static readonly string[] componentNames = {
         "BottomPoint",
@@ -55,6 +57,7 @@ public static class GameComponentsLookup {
         "Id",
         "Layer",
         "MaxHealth",
+        "Rigidbody",
         "SelfDestructTimer",
         "Transform",
         "View",
@@ -69,6 +72,7 @@ public static class GameComponentsLookup {
         "CooldownUp",
         "Direction",
         "FinishedPath",
+        "MovementByRigidbody",
         "MovementToTransform",
         "Moving",
         "ParabolicMovement",
@@ -95,6 +99,7 @@ public static class GameComponentsLookup {
         typeof(Code.Common.Id),
         typeof(Code.Common.Layer),
         typeof(Code.Common.MaxHealth),
+        typeof(Code.Common.RigidbodyComponent),
         typeof(Code.Common.SelfDestructTimer),
         typeof(Code.Common.TransformComponent),
         typeof(Code.Common.View),
@@ -109,6 +114,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Cooldowns.CooldownUp),
         typeof(Code.Gameplay.Movement.Direction),
         typeof(Code.Gameplay.Movement.FinishedPath),
+        typeof(Code.Gameplay.Movement.MovementByRigidbody),
         typeof(Code.Gameplay.Movement.MovementToTransform),
         typeof(Code.Gameplay.Movement.Moving),
         typeof(Code.Gameplay.Movement.ParabolicMovement),

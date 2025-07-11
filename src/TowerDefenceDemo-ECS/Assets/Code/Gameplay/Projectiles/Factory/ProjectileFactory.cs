@@ -42,6 +42,7 @@ namespace Code.Gameplay.Projectiles.Factory
                 .AddSpeed(data.Speed)
                 .AddSelfDestructTimer(data.LifeTime)
                 .With(e => e.isMoving = true)
+                .With(e => e.isMovementByRigidbody = true)
                 .With(e => e.isMovementToTransform = true);
              
             return entity;
