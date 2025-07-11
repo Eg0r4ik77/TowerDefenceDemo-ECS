@@ -40,6 +40,7 @@ namespace Code.Gameplay.Projectiles.Factory
                 .AddWorldPosition(position)
                 .AddViewPrefab(data.Prefab)
                 .AddSpeed(data.Speed)
+                .AddSelfDestructTimer(data.LifeTime)
                 .With(e => e.isMoving = true)
                 .With(e => e.isMovementToTransform = true);
              

@@ -10,48 +10,58 @@ public static class GameComponentsLookup {
 
     public const int BottomPoint = 0;
     public const int Destroyed = 1;
-    public const int Id = 2;
-    public const int Layer = 3;
-    public const int Transform = 4;
-    public const int View = 5;
-    public const int ViewPrefab = 6;
-    public const int WorldPosition = 7;
-    public const int Enemy = 8;
-    public const int EnemySpawnTimer = 9;
-    public const int Cooldown = 10;
-    public const int CooldownLeft = 11;
-    public const int CooldownUp = 12;
-    public const int Direction = 13;
-    public const int FinishedPath = 14;
-    public const int MovementToTransform = 15;
-    public const int Moving = 16;
-    public const int ParabolicMovement = 17;
-    public const int ReachDistance = 18;
-    public const int Speed = 19;
-    public const int TargetPosition = 20;
-    public const int FollowingTarget = 21;
-    public const int NeedForDetection = 22;
-    public const int ReadyForDetection = 23;
-    public const int TargetDetectionDistance = 24;
-    public const int TargetDetectionInterval = 25;
-    public const int TargetDetectionLayerMask = 26;
-    public const int TargetDetectionTimer = 27;
-    public const int TargetId = 28;
-    public const int AttackSpawnPoint = 29;
-    public const int CannonTower = 30;
-    public const int SimpleTower = 31;
+    public const int Health = 2;
+    public const int Id = 3;
+    public const int Layer = 4;
+    public const int MaxHealth = 5;
+    public const int SelfDestructTimer = 6;
+    public const int Transform = 7;
+    public const int View = 8;
+    public const int ViewPrefab = 9;
+    public const int WorldPosition = 10;
+    public const int Damage = 11;
+    public const int DamageEffect = 12;
+    public const int Enemy = 13;
+    public const int EnemySpawnTimer = 14;
+    public const int Cooldown = 15;
+    public const int CooldownLeft = 16;
+    public const int CooldownUp = 17;
+    public const int Direction = 18;
+    public const int FinishedPath = 19;
+    public const int MovementToTransform = 20;
+    public const int Moving = 21;
+    public const int ParabolicMovement = 22;
+    public const int ReachDistance = 23;
+    public const int Speed = 24;
+    public const int TargetPosition = 25;
+    public const int FollowingTarget = 26;
+    public const int NeedForDetection = 27;
+    public const int ReadyForDetection = 28;
+    public const int TargetDetectionDistance = 29;
+    public const int TargetDetectionInterval = 30;
+    public const int TargetDetectionLayerMask = 31;
+    public const int TargetDetectionTimer = 32;
+    public const int TargetId = 33;
+    public const int AttackSpawnPoint = 34;
+    public const int CannonTower = 35;
+    public const int SimpleTower = 36;
 
-    public const int TotalComponents = 32;
+    public const int TotalComponents = 37;
 
     public static readonly string[] componentNames = {
         "BottomPoint",
         "Destroyed",
+        "Health",
         "Id",
         "Layer",
+        "MaxHealth",
+        "SelfDestructTimer",
         "Transform",
         "View",
         "ViewPrefab",
         "WorldPosition",
+        "Damage",
+        "DamageEffect",
         "Enemy",
         "EnemySpawnTimer",
         "Cooldown",
@@ -81,12 +91,17 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Common.BottomPoint),
         typeof(Code.Common.Destroyed),
+        typeof(Code.Common.Health),
         typeof(Code.Common.Id),
         typeof(Code.Common.Layer),
+        typeof(Code.Common.MaxHealth),
+        typeof(Code.Common.SelfDestructTimer),
         typeof(Code.Common.TransformComponent),
         typeof(Code.Common.View),
         typeof(Code.Common.ViewPrefab),
         typeof(Code.Common.WorldPosition),
+        typeof(Code.Gameplay.Damage.Damage),
+        typeof(Code.Gameplay.Damage.DamageEffect),
         typeof(Code.Gameplay.Enemies.Enemy),
         typeof(Code.Gameplay.Enemies.EnemySpawnTimer),
         typeof(Code.Gameplay.Features.Cooldowns.Cooldown),

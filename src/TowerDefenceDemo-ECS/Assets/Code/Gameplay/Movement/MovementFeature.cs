@@ -8,6 +8,7 @@ namespace Code.Gameplay.Movement
         public MovementFeature(ISystemFactory systemFactory)
         {
             Add(systemFactory.Create<MovementToTransformSystem>());
+            Add(systemFactory.Create<ParabolicMovementSystem>());
             Add(systemFactory.Create<MovementToTargetPositionSystem>());
             Add(systemFactory.Create<DirectionalMoveSystem>());
             Add(systemFactory.Create<UpdateTransformPositionSystem>());
