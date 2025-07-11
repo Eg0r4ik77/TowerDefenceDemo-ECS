@@ -26,7 +26,7 @@ namespace Code.Gameplay.Damage.Systems
                 if (target.hasHealth)
                 {
                     target.ReplaceHealth(target.Health - entity.EffectValue);
-                    Debug.Log($"{target.Id}: {target.Health}");
+                    Debug.Log($"Entity {target.Id}: {target.Health} HP");
                 }
                 
                 entity.isDestroyed = true;

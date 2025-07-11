@@ -17,9 +17,6 @@ namespace Code.Common
     [Game] public class RigidbodyComponent : IComponent { public Rigidbody Value; }
     [Game] public class Layer : IComponent { public EntityLayer Value; }
     
-    [Game] public class Health : IComponent { public float Value; }
-    [Game] public class MaxHealth : IComponent { public float Value; }
-    
     [Game] public class SelfDestructTimer : IComponent { public float Value; }
     [Game] public class Destroyed : IComponent { }
 }

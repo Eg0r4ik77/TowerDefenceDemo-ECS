@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Common.MaxHealth maxHealth { get { return (Code.Common.MaxHealth)GetComponent(GameComponentsLookup.MaxHealth); } }
+    public Code.Gameplay.Lifetime.MaxHealth maxHealth { get { return (Code.Gameplay.Lifetime.MaxHealth)GetComponent(GameComponentsLookup.MaxHealth); } }
     public float MaxHealth { get { return maxHealth.Value; } }
     public bool hasMaxHealth { get { return HasComponent(GameComponentsLookup.MaxHealth); } }
 
     public GameEntity AddMaxHealth(float newValue) {
         var index = GameComponentsLookup.MaxHealth;
-        var component = (Code.Common.MaxHealth)CreateComponent(index, typeof(Code.Common.MaxHealth));
+        var component = (Code.Gameplay.Lifetime.MaxHealth)CreateComponent(index, typeof(Code.Gameplay.Lifetime.MaxHealth));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceMaxHealth(float newValue) {
         var index = GameComponentsLookup.MaxHealth;
-        var component = (Code.Common.MaxHealth)CreateComponent(index, typeof(Code.Common.MaxHealth));
+        var component = (Code.Gameplay.Lifetime.MaxHealth)CreateComponent(index, typeof(Code.Gameplay.Lifetime.MaxHealth));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

@@ -10,56 +10,55 @@ public static class GameComponentsLookup {
 
     public const int AdjustTransformWithSpawnPoint = 0;
     public const int Destroyed = 1;
-    public const int Health = 2;
-    public const int Id = 3;
-    public const int Layer = 4;
-    public const int MaxHealth = 5;
-    public const int Rigidbody = 6;
-    public const int SelfDestructTimer = 7;
-    public const int SpawnPoint = 8;
-    public const int Transform = 9;
-    public const int View = 10;
-    public const int ViewPrefab = 11;
-    public const int WorldPosition = 12;
-    public const int Damage = 13;
-    public const int DamageEffect = 14;
-    public const int EffectTargetId = 15;
-    public const int EffectValue = 16;
-    public const int Enemy = 17;
-    public const int EnemySpawnTimer = 18;
-    public const int Cooldown = 19;
-    public const int CooldownLeft = 20;
-    public const int CooldownUp = 21;
-    public const int Direction = 22;
-    public const int FinishedPath = 23;
-    public const int MovementByRigidbody = 24;
-    public const int MovementToTransform = 25;
-    public const int Moving = 26;
-    public const int ParabolicMovement = 27;
-    public const int ReachDistance = 28;
-    public const int Speed = 29;
-    public const int TargetPosition = 30;
-    public const int FollowingTarget = 31;
-    public const int NeedForDetection = 32;
-    public const int ReadyForDetection = 33;
-    public const int TargetDetectionDistance = 34;
-    public const int TargetDetectionInterval = 35;
-    public const int TargetDetectionLayerMask = 36;
-    public const int TargetDetectionTimer = 37;
-    public const int TargetId = 38;
-    public const int AttackSpawnPoint = 39;
-    public const int CannonTower = 40;
-    public const int SimpleTower = 41;
+    public const int Id = 2;
+    public const int Layer = 3;
+    public const int Rigidbody = 4;
+    public const int SelfDestructTimer = 5;
+    public const int SpawnPoint = 6;
+    public const int Transform = 7;
+    public const int View = 8;
+    public const int ViewPrefab = 9;
+    public const int WorldPosition = 10;
+    public const int Damage = 11;
+    public const int DamageEffect = 12;
+    public const int EffectTargetId = 13;
+    public const int EffectValue = 14;
+    public const int Enemy = 15;
+    public const int EnemySpawnTimer = 16;
+    public const int Cooldown = 17;
+    public const int CooldownLeft = 18;
+    public const int CooldownUp = 19;
+    public const int Dead = 20;
+    public const int Health = 21;
+    public const int MaxHealth = 22;
+    public const int Direction = 23;
+    public const int FinishedPath = 24;
+    public const int MovementByRigidbody = 25;
+    public const int MovementToTransform = 26;
+    public const int Moving = 27;
+    public const int ParabolicMovement = 28;
+    public const int ReachDistance = 29;
+    public const int Speed = 30;
+    public const int TargetPosition = 31;
+    public const int FollowingTarget = 32;
+    public const int NeedForDetection = 33;
+    public const int ReadyForDetection = 34;
+    public const int TargetDetectionDistance = 35;
+    public const int TargetDetectionInterval = 36;
+    public const int TargetDetectionLayerMask = 37;
+    public const int TargetDetectionTimer = 38;
+    public const int TargetId = 39;
+    public const int AttackSpawnPoint = 40;
+    public const int CannonTower = 41;
+    public const int SimpleTower = 42;
 
-    public const int TotalComponents = 42;
+    public const int TotalComponents = 43;
 
     public static readonly string[] componentNames = {
         "AdjustTransformWithSpawnPoint",
         "Destroyed",
-        "Health",
         "Id",
         "Layer",
-        "MaxHealth",
         "Rigidbody",
         "SelfDestructTimer",
         "SpawnPoint",
@@ -76,6 +75,9 @@ public static class GameComponentsLookup {
         "Cooldown",
         "CooldownLeft",
         "CooldownUp",
+        "Dead",
+        "Health",
+        "MaxHealth",
         "Direction",
         "FinishedPath",
         "MovementByRigidbody",
@@ -101,10 +103,8 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Common.AdjustTransformWithSpawnPoint),
         typeof(Code.Common.Destroyed),
-        typeof(Code.Common.Health),
         typeof(Code.Common.Id),
         typeof(Code.Common.Layer),
-        typeof(Code.Common.MaxHealth),
         typeof(Code.Common.RigidbodyComponent),
         typeof(Code.Common.SelfDestructTimer),
         typeof(Code.Common.SpawnPoint),
@@ -121,6 +121,9 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Cooldowns.Cooldown),
         typeof(Code.Gameplay.Features.Cooldowns.CooldownLeft),
         typeof(Code.Gameplay.Features.Cooldowns.CooldownUp),
+        typeof(Code.Gameplay.Lifetime.Dead),
+        typeof(Code.Gameplay.Lifetime.Health),
+        typeof(Code.Gameplay.Lifetime.MaxHealth),
         typeof(Code.Gameplay.Movement.Direction),
         typeof(Code.Gameplay.Movement.FinishedPath),
         typeof(Code.Gameplay.Movement.MovementByRigidbody),
