@@ -1,16 +1,20 @@
 using System.Collections.Generic;
+using Code.Gameplay.Common.Time;
 using Entitas;
-using UnityEngine;
 
 namespace Code.Common.Destroy.Systems
 {
     public class SelfDestroyTimerSystem : IExecuteSystem
     {
+        private readonly ITimeService _timeService;
+        
         private readonly IGroup<GameEntity> _entities;
         private readonly List<GameEntity> _buffer = new (64);
 
-        public SelfDestroyTimerSystem(GameContext game)
+        public SelfDestroyTimerSystem(GameContext game, ITimeService timeService)
         {
+            _timeService = timeService;
+            
             _entities = game.GetGroup(GameMatcher.SelfDestructTimer);
         }
     
@@ -19,7 +23,7 @@ namespace Code.Common.Destroy.Systems
             foreach (GameEntity entity in _entities.GetEntities(_buffer))
             {
                 if (entity.SelfDestructTimer > 0)
-                    entity.ReplaceSelfDestructTimer(entity.SelfDestructTimer - Time.deltaTime);
+                    entity.ReplaceSelfDestructTimer(entity.SelfDestructTimer - _timeService.DeltaTime);
                 else
                 {
                     entity.RemoveSelfDestructTimer();

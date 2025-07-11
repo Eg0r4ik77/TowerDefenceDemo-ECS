@@ -1,3 +1,5 @@
+using Code.Common.Time;
+using Code.Gameplay.Common.Time;
 using Code.Gameplay.Effects.Factory;
 using Code.Gameplay.Enemies;
 using Code.Gameplay.Projectiles.Factory;
@@ -22,6 +24,7 @@ namespace Code.Infrastructure
             Container.Bind<LevelDataProvider>().FromInstance(_levelDataProvider).AsSingle();
             Container.BindInterfacesAndSelfTo<StaticDataService>().AsSingle();
             Container.Bind<IIdentifierGenerator>().To<IdentifierGenerator>().AsSingle();
+            Container.Bind<ITimeService>().To<UnityTimeService>().AsSingle();
             
             Container.Bind<ISystemFactory>().To<SystemFactory>().AsSingle();
             Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();

@@ -1,3 +1,4 @@
+using Code.Gameplay.Common.Time;
 using Code.Gameplay.Enemies.Data;
 using Code.Infrastructure;
 using Code.StaticData;
@@ -9,6 +10,8 @@ namespace Code.Gameplay.Enemies.Systems
     public class SpawnEnemySystem : IExecuteSystem
     {
         private readonly IEnemyFactory _enemyFactory;
+        private readonly ITimeService _timeService;
+        
         private readonly IGroup<GameEntity> _entities;
 
         private float _interval;
@@ -16,12 +19,14 @@ namespace Code.Gameplay.Enemies.Systems
         private Vector3 _spawnPosition;
         
         public SpawnEnemySystem(IEnemyFactory enemyFactory,
+            ITimeService timeService,
             IStaticDataService staticDataService,
             LevelDataProvider levelDataProvider,
             GameContext gameContext)
         {
             _enemyFactory = enemyFactory;
-            
+            _timeService = timeService;
+
             _entities = gameContext.GetGroup(GameMatcher
                 .AllOf(GameMatcher.EnemySpawnTimer));
             
@@ -39,7 +44,7 @@ namespace Code.Gameplay.Enemies.Systems
                     _enemyFactory.Create(_enemyType, _spawnPosition);
                 }
 
-                entity.ReplaceEnemySpawnTimer(entity.EnemySpawnTimer - Time.deltaTime);
+                entity.ReplaceEnemySpawnTimer(entity.EnemySpawnTimer - _timeService.DeltaTime);
             }
         }
 

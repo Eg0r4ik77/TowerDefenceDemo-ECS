@@ -1,14 +1,18 @@
+using Code.Gameplay.Common.Time;
 using Entitas;
-using UnityEngine;
 
 namespace Code.Gameplay.TargetDetection
 {
     public class TargetDetectionIntervalSystem : IExecuteSystem
     {
+        private readonly ITimeService _timeService;
+        
         private readonly IGroup<GameEntity> _entities;
 
-        public TargetDetectionIntervalSystem(GameContext game)
+        public TargetDetectionIntervalSystem(GameContext game, ITimeService timeService)
         {
+            _timeService = timeService;
+            
             _entities = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.TargetDetectionInterval,
@@ -27,7 +31,7 @@ namespace Code.Gameplay.TargetDetection
                         entity.ReplaceTargetDetectionTimer(entity.TargetDetectionInterval);
                 }
                 
-                entity.ReplaceTargetDetectionTimer(entity.TargetDetectionTimer - Time.deltaTime);
+                entity.ReplaceTargetDetectionTimer(entity.TargetDetectionTimer - _timeService.DeltaTime);
             }
         }
     }
