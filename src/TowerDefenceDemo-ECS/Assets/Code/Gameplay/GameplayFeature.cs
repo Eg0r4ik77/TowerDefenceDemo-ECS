@@ -1,4 +1,5 @@
 using Code.Common;
+using Code.Gameplay.Damage;
 using Code.Gameplay.Enemies;
 using Code.Gameplay.Movement;
 using Code.Gameplay.TargetDetection;
@@ -17,6 +18,7 @@ namespace Code.Gameplay
             Add(systemFactory.Create<EnemyFeature>());
             Add(systemFactory.Create<TargetDetectionFeature>());
             Add(systemFactory.Create<TowerFeature>());
+            Add(systemFactory.Create<EffectFeature>());
             Add(systemFactory.Create<CleanupDestroyedFeature>());
         }
     }

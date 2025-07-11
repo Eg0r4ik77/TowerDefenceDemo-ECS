@@ -23,33 +23,35 @@ public static class GameComponentsLookup {
     public const int WorldPosition = 12;
     public const int Damage = 13;
     public const int DamageEffect = 14;
-    public const int Enemy = 15;
-    public const int EnemySpawnTimer = 16;
-    public const int Cooldown = 17;
-    public const int CooldownLeft = 18;
-    public const int CooldownUp = 19;
-    public const int Direction = 20;
-    public const int FinishedPath = 21;
-    public const int MovementByRigidbody = 22;
-    public const int MovementToTransform = 23;
-    public const int Moving = 24;
-    public const int ParabolicMovement = 25;
-    public const int ReachDistance = 26;
-    public const int Speed = 27;
-    public const int TargetPosition = 28;
-    public const int FollowingTarget = 29;
-    public const int NeedForDetection = 30;
-    public const int ReadyForDetection = 31;
-    public const int TargetDetectionDistance = 32;
-    public const int TargetDetectionInterval = 33;
-    public const int TargetDetectionLayerMask = 34;
-    public const int TargetDetectionTimer = 35;
-    public const int TargetId = 36;
-    public const int AttackSpawnPoint = 37;
-    public const int CannonTower = 38;
-    public const int SimpleTower = 39;
+    public const int EffectTargetId = 15;
+    public const int EffectValue = 16;
+    public const int Enemy = 17;
+    public const int EnemySpawnTimer = 18;
+    public const int Cooldown = 19;
+    public const int CooldownLeft = 20;
+    public const int CooldownUp = 21;
+    public const int Direction = 22;
+    public const int FinishedPath = 23;
+    public const int MovementByRigidbody = 24;
+    public const int MovementToTransform = 25;
+    public const int Moving = 26;
+    public const int ParabolicMovement = 27;
+    public const int ReachDistance = 28;
+    public const int Speed = 29;
+    public const int TargetPosition = 30;
+    public const int FollowingTarget = 31;
+    public const int NeedForDetection = 32;
+    public const int ReadyForDetection = 33;
+    public const int TargetDetectionDistance = 34;
+    public const int TargetDetectionInterval = 35;
+    public const int TargetDetectionLayerMask = 36;
+    public const int TargetDetectionTimer = 37;
+    public const int TargetId = 38;
+    public const int AttackSpawnPoint = 39;
+    public const int CannonTower = 40;
+    public const int SimpleTower = 41;
 
-    public const int TotalComponents = 40;
+    public const int TotalComponents = 42;
 
     public static readonly string[] componentNames = {
         "AdjustTransformWithSpawnPoint",
@@ -67,6 +69,8 @@ public static class GameComponentsLookup {
         "WorldPosition",
         "Damage",
         "DamageEffect",
+        "EffectTargetId",
+        "EffectValue",
         "Enemy",
         "EnemySpawnTimer",
         "Cooldown",
@@ -110,6 +114,8 @@ public static class GameComponentsLookup {
         typeof(Code.Common.WorldPosition),
         typeof(Code.Gameplay.Damage.Damage),
         typeof(Code.Gameplay.Damage.DamageEffect),
+        typeof(Code.Gameplay.Damage.EffectTargetId),
+        typeof(Code.Gameplay.Damage.EffectValue),
         typeof(Code.Gameplay.Enemies.Enemy),
         typeof(Code.Gameplay.Enemies.EnemySpawnTimer),
         typeof(Code.Gameplay.Features.Cooldowns.Cooldown),

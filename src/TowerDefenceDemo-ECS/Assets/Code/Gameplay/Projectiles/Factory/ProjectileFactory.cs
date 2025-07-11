@@ -10,15 +10,12 @@ namespace Code.Gameplay.Projectiles.Factory
     {
         private readonly GameContext _gameContext;
         private readonly IStaticDataService _staticDataService;
-        private readonly IIdentifierGenerator _identifierGenerator;
 
         public ProjectileFactory(GameContext gameContext,
-            IStaticDataService staticDataService,
-            IIdentifierGenerator identifierGenerator)
+            IStaticDataService staticDataService)
         {
             _gameContext = gameContext;
             _staticDataService = staticDataService;
-            _identifierGenerator = identifierGenerator;
         }
         
         public GameEntity Create(ProjectileType type, Vector3 position)
@@ -35,17 +32,15 @@ namespace Code.Gameplay.Projectiles.Factory
         {
             ProjectileData data = _staticDataService.GetProjectileData(ProjectileType.Guided);
 
-            GameEntity entity = _gameContext.CreateEntity()
-                .AddId(_identifierGenerator.GetId())
+            return _gameContext.CreateEntity()
                 .AddWorldPosition(position)
                 .AddViewPrefab(data.Prefab)
                 .AddSpeed(data.Speed)
+                .AddDamage(data.Damage)
                 .AddSelfDestructTimer(data.LifeTime)
                 .With(e => e.isMoving = true)
                 .With(e => e.isMovementByRigidbody = true)
                 .With(e => e.isMovementToTransform = true);
-             
-            return entity;
         }
 
         private GameEntity CreateParabolic(Vector3 position)

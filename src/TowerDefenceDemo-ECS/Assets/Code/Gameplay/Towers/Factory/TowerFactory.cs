@@ -37,7 +37,7 @@ namespace Code.Gameplay.Towers.Factory
         {
             TowerData data = _staticDataService.GetTowerData(TowerType.Simple);
 
-            GameEntity entity = _gameContext.CreateEntity()
+            return _gameContext.CreateEntity()
                 .AddId(_identifierGenerator.GetId())
                 .AddWorldPosition(position)
                 .AddViewPrefab(data.Prefab)
@@ -50,8 +50,6 @@ namespace Code.Gameplay.Towers.Factory
                 .With(e => e.isSimpleTower = true)
                 .With(e => e.isNeedForDetection = true)
                 .With(e => e.isReadyForDetection = true);
-            
-            return entity;
         }
         
         private GameEntity CreateCannon(Vector3 position)

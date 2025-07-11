@@ -1,22 +1,25 @@
-using System;
+using Code.Common;
+using Code.Gameplay.Damage;
+using Code.Gameplay.Effects.Factory;
 using Code.Infrastructure.View;
 using UnityEngine;
 using Zenject;
 
 namespace Code.Gameplay.Projectiles
 {
+    [RequireComponent(typeof(EntityView))]
     public class ProjectileCollisionTrigger : MonoBehaviour
     {
         private const string GroundLayer = "Ground";
         private const string EnemyLayer = "Enemy";
         
-        private GameContext _gameContext;
+        private IEffectFactory _effectFactory;
         private EntityView _entityView;
 
         [Inject]
-        private void Construct(GameContext gameContext)
+        private void Construct(IEffectFactory effectFactory)
         {
-            _gameContext = gameContext;
+            _effectFactory = effectFactory;
         }
         
         private void Awake()
@@ -26,17 +29,27 @@ namespace Code.Gameplay.Projectiles
 
         private void OnTriggerEnter(Collider other)
         {
+            GameEntity entity = _entityView.Entity;
+
+            if (entity == null)
+                return;
+            
             if (other.gameObject.layer == LayerMask.NameToLayer(GroundLayer))
             {
-                _entityView.Entity.isDestroyed = true;
+                entity.isDestroyed = true;
                 return;
             }
 
-            if (other.gameObject.layer == LayerMask.NameToLayer(EnemyLayer) && other.TryGetComponent(out EntityView otherEntityView))
-            { 
-                //_gameContext.CreateEntity().AddTargetId(otherEntityView.Entity.Id).AddDamage()
+            if (other.TryGetComponent(out EntityView otherEntityView))
+            {
+                GameEntity otherEntity = otherEntityView.Entity;
+
+                if (otherEntity.hasLayer && otherEntity.Layer == EntityLayer.Enemy)
+                {
+                    _effectFactory.Create(EffectType.Damage, entity.Damage, otherEntity.Id);
                     
-                _entityView.Entity.isDestroyed = true;
+                    entity.isDestroyed = true;
+                }
             }
         }
 

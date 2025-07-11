@@ -20,7 +20,9 @@ namespace Code.Common.Systems
         {
             foreach (GameEntity entity in _entities.GetEntities(_buffer))
             {
-                _identifierGenerator.ReleaseId(entity.Id);
+                if(entity.hasId)
+                    _identifierGenerator.ReleaseId(entity.Id);
+                
                 entity.Destroy();
             }
         }

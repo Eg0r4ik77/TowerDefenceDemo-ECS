@@ -41,20 +41,20 @@ namespace Code.Gameplay.Enemies
         {
              EnemyData data = _staticDataService.GetEnemyData(EnemyType.Simple);
 
-             GameEntity entity = _gameContext.CreateEntity()
+             return _gameContext.CreateEntity()
                  .AddId(_identifierGenerator.GetId())
                  .AddLayer(EntityLayer.Enemy)
                  .AddWorldPosition(position)
                  .AddViewPrefab(data.Prefab)
                  .AddSpeed(data.Speed)
                  .AddReachDistance(data.ReachDistance)
+                 .AddMaxHealth(data.MaxHealth)
+                 .AddHealth(data.MaxHealth)
                  .AddTargetPosition(_levelDataProvider.TargetPosition)
                  .With(e => e.isEnemy = true)
                  .With(e => e.isAdjustTransformWithSpawnPoint = true)
                  .With(e => e.isMoving = true)
                  .With(e => e.isMovementByRigidbody = true);
-             
-            return entity;
         }
     }
 }

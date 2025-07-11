@@ -1,3 +1,4 @@
+using Code.Gameplay.Effects.Factory;
 using Code.Gameplay.Enemies;
 using Code.Gameplay.Projectiles.Factory;
 using Code.Gameplay.Towers.Factory;
@@ -5,6 +6,7 @@ using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View.Factory;
 using Code.StaticData;
+using Entitas;
 using UnityEngine;
 using Zenject;
 
@@ -26,6 +28,7 @@ namespace Code.Infrastructure
             Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
             Container.Bind<ITowerFactory>().To<TowerFactory>().AsSingle();
             Container.Bind<IProjectileFactory>().To<ProjectileFactory>().AsSingle();
+            Container.Bind<IEffectFactory>().To<EffectFactory>().AsSingle();
         }
     }
 }
