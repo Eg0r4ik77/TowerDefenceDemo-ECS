@@ -11,7 +11,6 @@ namespace Code.Gameplay.Projectiles
     public class ProjectileCollisionTrigger : MonoBehaviour
     {
         private const string GroundLayer = "Ground";
-        private const string EnemyLayer = "Enemy";
         
         private IEffectFactory _effectFactory;
         private EntityView _entityView;
@@ -37,6 +36,7 @@ namespace Code.Gameplay.Projectiles
             if (other.gameObject.layer == LayerMask.NameToLayer(GroundLayer))
             {
                 entity.isDestroyed = true;
+                Debug.Log("IS DESTROYED");
                 return;
             }
 

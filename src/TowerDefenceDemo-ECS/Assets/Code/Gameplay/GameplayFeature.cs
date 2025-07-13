@@ -15,10 +15,10 @@ namespace Code.Gameplay
         public GameplayFeature(ISystemFactory systemFactory)
         {
             Add(systemFactory.Create<BindViewFeature>());
-            Add(systemFactory.Create<MovementFeature>());
             Add(systemFactory.Create<EnemyFeature>());
             Add(systemFactory.Create<TargetDetectionFeature>());
             Add(systemFactory.Create<TowerFeature>());
+            Add(systemFactory.Create<MovementFeature>());
             Add(systemFactory.Create<EffectFeature>());
             Add(systemFactory.Create<LifetimeFeature>());
             Add(systemFactory.Create<CleanupDestroyedFeature>());

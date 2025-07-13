@@ -45,8 +45,17 @@ namespace Code.Gameplay.Projectiles.Factory
 
         private GameEntity CreateParabolic(Vector3 position)
         {
-            return _gameContext.CreateEntity();
+            ProjectileData data = _staticDataService.GetProjectileData(ProjectileType.Parabolic);
+
+            return _gameContext.CreateEntity()
+                .AddWorldPosition(position)
+                .AddViewPrefab(data.Prefab)
+                .AddSpeed(data.Speed)
+                .AddDamage(data.Damage)
+                .AddSelfDestructTimer(data.LifeTime)
+                .With(e => e.isCannonProjectile = true)
+                .With(e => e.isMoving = true)
+                .With(e => e.isMovementByRigidbody = true);
         }
-            
     }
 }

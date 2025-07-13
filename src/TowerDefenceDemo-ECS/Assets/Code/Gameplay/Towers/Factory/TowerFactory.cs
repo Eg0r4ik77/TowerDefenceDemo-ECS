@@ -35,7 +35,7 @@ namespace Code.Gameplay.Towers.Factory
 
         private GameEntity CreateSimple(Vector3 position)
         {
-            TowerData data = _staticDataService.GetTowerData(TowerType.Simple);
+            SimpleTowerData data = (SimpleTowerData)_staticDataService.GetTowerData(TowerType.Simple);
 
             return _gameContext.CreateEntity()
                 .AddId(_identifierGenerator.GetId())
@@ -54,12 +54,14 @@ namespace Code.Gameplay.Towers.Factory
         
         private GameEntity CreateCannon(Vector3 position)
         {
-            TowerData data = _staticDataService.GetTowerData(TowerType.Cannon);
+            CannonTowerData data = (CannonTowerData)_staticDataService.GetTowerData(TowerType.Cannon);
 
-            GameEntity entity = _gameContext.CreateEntity()
+            return _gameContext.CreateEntity()
                 .AddId(_identifierGenerator.GetId())
                 .AddWorldPosition(position)
                 .AddViewPrefab(data.Prefab)
+                .AddRotationSpeed(data.RotationSpeed)
+                .AddCannonLength(data.CannonLength)
                 .AddTargetDetectionInterval(data.TargetDetectionInterval)
                 .AddTargetDetectionTimer(data.TargetDetectionInterval)
                 .AddTargetDetectionDistance(data.TargetDetectionDistance)
@@ -70,8 +72,6 @@ namespace Code.Gameplay.Towers.Factory
                 .With(e => e.isNeedForDetection = true)
                 .With(e => e.isReadyForDetection = true)
                 .With(e => e.isFollowingTarget = true);
-            
-            return entity;
         }
     }
 }

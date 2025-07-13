@@ -38,21 +38,27 @@ public static class GameComponentsLookup {
     public const int Moving = 27;
     public const int ParabolicMovement = 28;
     public const int ReachDistance = 29;
-    public const int Speed = 30;
-    public const int TargetPosition = 31;
-    public const int FollowingTarget = 32;
-    public const int NeedForDetection = 33;
-    public const int ReadyForDetection = 34;
-    public const int TargetDetectionDistance = 35;
-    public const int TargetDetectionInterval = 36;
-    public const int TargetDetectionLayerMask = 37;
-    public const int TargetDetectionTimer = 38;
-    public const int TargetId = 39;
-    public const int AttackSpawnPoint = 40;
-    public const int CannonTower = 41;
-    public const int SimpleTower = 42;
+    public const int Rotation = 30;
+    public const int RotationSpeed = 31;
+    public const int Speed = 32;
+    public const int TargetPosition = 33;
+    public const int TargetRotationPosition = 34;
+    public const int CannonProjectile = 35;
+    public const int DistanceBeforeDeparture = 36;
+    public const int FollowingTarget = 37;
+    public const int NeedForDetection = 38;
+    public const int ReadyForDetection = 39;
+    public const int TargetDetectionDistance = 40;
+    public const int TargetDetectionInterval = 41;
+    public const int TargetDetectionLayerMask = 42;
+    public const int TargetDetectionTimer = 43;
+    public const int TargetId = 44;
+    public const int AttackSpawnPoint = 45;
+    public const int CannonLength = 46;
+    public const int CannonTower = 47;
+    public const int SimpleTower = 48;
 
-    public const int TotalComponents = 43;
+    public const int TotalComponents = 49;
 
     public static readonly string[] componentNames = {
         "AdjustTransformWithSpawnPoint",
@@ -85,8 +91,13 @@ public static class GameComponentsLookup {
         "Moving",
         "ParabolicMovement",
         "ReachDistance",
+        "Rotation",
+        "RotationSpeed",
         "Speed",
         "TargetPosition",
+        "TargetRotationPosition",
+        "CannonProjectile",
+        "DistanceBeforeDeparture",
         "FollowingTarget",
         "NeedForDetection",
         "ReadyForDetection",
@@ -96,6 +107,7 @@ public static class GameComponentsLookup {
         "TargetDetectionTimer",
         "TargetId",
         "AttackSpawnPoint",
+        "CannonLength",
         "CannonTower",
         "SimpleTower"
     };
@@ -131,8 +143,13 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Movement.Moving),
         typeof(Code.Gameplay.Movement.ParabolicMovement),
         typeof(Code.Gameplay.Movement.ReachDistance),
+        typeof(Code.Gameplay.Movement.Rotation),
+        typeof(Code.Gameplay.Movement.RotationSpeed),
         typeof(Code.Gameplay.Movement.Speed),
         typeof(Code.Gameplay.Movement.TargetPosition),
+        typeof(Code.Gameplay.Movement.TargetRotationPosition),
+        typeof(Code.Gameplay.Projectiles.CannonProjectile),
+        typeof(Code.Gameplay.Projectiles.DistanceBeforeDeparture),
         typeof(Code.Gameplay.TargetDetection.FollowingTarget),
         typeof(Code.Gameplay.TargetDetection.NeedForDetection),
         typeof(Code.Gameplay.TargetDetection.ReadyForDetection),
@@ -142,6 +159,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.TargetDetection.TargetDetectionTimer),
         typeof(Code.Gameplay.TargetDetection.TargetId),
         typeof(Code.Gameplay.Towers.AttackSpawnPoint),
+        typeof(Code.Gameplay.Towers.CannonLength),
         typeof(Code.Gameplay.Towers.CannonTowerComponent),
         typeof(Code.Gameplay.Towers.SimpleTowerComponent)
     };

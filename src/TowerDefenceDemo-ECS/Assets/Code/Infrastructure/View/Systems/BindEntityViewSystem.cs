@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Code.Infrastructure.View.Factory;
 using Entitas;
+using UnityEngine;
 
 namespace Code.Infrastructure.View.Systems
 {
@@ -24,6 +25,12 @@ namespace Code.Infrastructure.View.Systems
         {
             foreach (GameEntity entity in _entities.GetEntities(_buffer))
             {
+                if (entity.hasWorldPosition)
+                {
+                    _entityViewFactory.CreateViewForEntity(entity, entity.WorldPosition);
+                    return;
+                }
+                
                 _entityViewFactory.CreateViewForEntity(entity);
             }
         }

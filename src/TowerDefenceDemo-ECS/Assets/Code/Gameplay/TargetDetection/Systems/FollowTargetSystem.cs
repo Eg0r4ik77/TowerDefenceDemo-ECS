@@ -1,16 +1,20 @@
 using System.Collections.Generic;
 using Entitas;
+using UnityEngine;
 
 namespace Code.Gameplay.TargetDetection.Systems
 {
     public class FollowTargetSystem : IExecuteSystem
     {
+        private readonly GameContext _gameContext;
         private readonly IGroup<GameEntity> _detectors;
         
         private readonly List<GameEntity> _detectorsBuffer = new(64);
         
         public FollowTargetSystem(GameContext gameContext)
         {
+            _gameContext = gameContext;
+            
             _detectors = gameContext.GetGroup(GameMatcher.AllOf(
                 GameMatcher.FollowingTarget,
                 GameMatcher.TargetId));
@@ -21,6 +25,12 @@ namespace Code.Gameplay.TargetDetection.Systems
             foreach (GameEntity detector in _detectors.GetEntities(_detectorsBuffer))
             {
                 detector.isNeedForDetection = false;
+
+                //TODO: УБРАТЬ В ДРУГУЮ СИСТЕМУ 
+                GameEntity target = _gameContext.GetEntityWithId(detector.TargetId);
+
+                if (target.hasWorldPosition)
+                    detector.ReplaceTargetRotationPosition(new Vector3(target.WorldPosition.x, detector.WorldPosition.y, target.WorldPosition.z));
             }
         }
     }
