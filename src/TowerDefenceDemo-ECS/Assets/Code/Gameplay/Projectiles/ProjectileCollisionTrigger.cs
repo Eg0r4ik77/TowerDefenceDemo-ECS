@@ -36,7 +36,6 @@ namespace Code.Gameplay.Projectiles
             if (other.gameObject.layer == LayerMask.NameToLayer(GroundLayer))
             {
                 entity.isDestroyed = true;
-                Debug.Log("IS DESTROYED");
                 return;
             }
 

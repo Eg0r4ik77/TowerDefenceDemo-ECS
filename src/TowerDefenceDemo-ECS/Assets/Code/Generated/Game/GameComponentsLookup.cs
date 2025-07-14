@@ -53,12 +53,13 @@ public static class GameComponentsLookup {
     public const int TargetDetectionLayerMask = 42;
     public const int TargetDetectionTimer = 43;
     public const int TargetId = 44;
-    public const int AttackSpawnPoint = 45;
-    public const int CannonLength = 46;
-    public const int CannonTower = 47;
-    public const int SimpleTower = 48;
+    public const int AngleShot = 45;
+    public const int AttackSpawnPoint = 46;
+    public const int CannonLength = 47;
+    public const int CannonTower = 48;
+    public const int SimpleTower = 49;
 
-    public const int TotalComponents = 49;
+    public const int TotalComponents = 50;
 
     public static readonly string[] componentNames = {
         "AdjustTransformWithSpawnPoint",
@@ -106,6 +107,7 @@ public static class GameComponentsLookup {
         "TargetDetectionLayerMask",
         "TargetDetectionTimer",
         "TargetId",
+        "AngleShot",
         "AttackSpawnPoint",
         "CannonLength",
         "CannonTower",
@@ -158,6 +160,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.TargetDetection.TargetDetectionLayerMask),
         typeof(Code.Gameplay.TargetDetection.TargetDetectionTimer),
         typeof(Code.Gameplay.TargetDetection.TargetId),
+        typeof(Code.Gameplay.Towers.AngleShot),
         typeof(Code.Gameplay.Towers.AttackSpawnPoint),
         typeof(Code.Gameplay.Towers.CannonLength),
         typeof(Code.Gameplay.Towers.CannonTowerComponent),

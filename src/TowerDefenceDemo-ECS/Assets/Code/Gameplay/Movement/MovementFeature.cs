@@ -16,7 +16,6 @@ namespace Code.Gameplay.Movement
             Add(systemFactory.Create<DirectionalMoveSystem>());
             Add(systemFactory.Create<RotateToPositionSystem>());
             Add(systemFactory.Create<UpdateTransformRotationSystem>());
-            Add(systemFactory.Create<UpdateRigidbodyPositionSystem>());
             Add(systemFactory.Create<DestroyAfterFinishMovementToTargetSystem>());
         }
     }

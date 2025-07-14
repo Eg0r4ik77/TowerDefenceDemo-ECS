@@ -9,7 +9,6 @@ namespace Code.Gameplay.Attack.Systems
 {
     public class CannonTowerAttackSystem : IExecuteSystem
     {
-        private readonly GameContext _gameContext;
         private readonly IProjectileFactory _projectileFactory;
 
         private readonly IGroup<GameEntity> _cannonTowers;
@@ -17,7 +16,6 @@ namespace Code.Gameplay.Attack.Systems
 
         public CannonTowerAttackSystem(GameContext game, IProjectileFactory projectileFactory)
         {
-            _gameContext = game;
             _projectileFactory = projectileFactory;
             
             _cannonTowers = game.GetGroup(GameMatcher.AllOf(
@@ -33,7 +31,8 @@ namespace Code.Gameplay.Attack.Systems
             {
                 _projectileFactory.Create(ProjectileType.Parabolic, cannonTower.AttackSpawnPoint.position)
                     .AddAttackSpawnPoint(cannonTower.AttackSpawnPoint)
-                    .AddDistanceBeforeDeparture(cannonTower.CannonLength);
+                    .AddDistanceBeforeDeparture(cannonTower.CannonLength)
+                    .AddAngleShot(60 * Mathf.Deg2Rad);
                 
                 cannonTower.PutOnCooldown();
             }

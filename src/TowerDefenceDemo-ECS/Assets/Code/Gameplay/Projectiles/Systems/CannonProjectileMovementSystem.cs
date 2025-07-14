@@ -26,8 +26,15 @@ namespace Code.Gameplay.Projectiles.Systems
                     entity.ReplaceDirection(entity.Transform.forward);
                 }
                 else
-                { 
-                    entity.isParabolicMovement = true;
+                {
+                    if (entity.isParabolicMovement == false)
+                    {
+                        float sin = Mathf.Sin(entity.AngleShot);
+                        float cos = Mathf.Cos(entity.AngleShot);
+                        
+                        entity.ReplaceDirection(entity.Transform.forward * sin + Vector3.down * cos);
+                        entity.isParabolicMovement = true;
+                    }
                 }
             }
         }
