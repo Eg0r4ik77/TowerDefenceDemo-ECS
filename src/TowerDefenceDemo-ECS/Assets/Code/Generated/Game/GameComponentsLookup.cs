@@ -56,11 +56,13 @@ public static class GameComponentsLookup {
     public const int TargetId = 45;
     public const int AngleShot = 46;
     public const int AttackSpawnPoint = 47;
-    public const int CannonLength = 48;
-    public const int CannonTower = 49;
-    public const int SimpleTower = 50;
+    public const int CannonTower = 48;
+    public const int DeparturePoint = 49;
+    public const int Prediction = 50;
+    public const int SimpleTower = 51;
+    public const int EntityViewPoolType = 52;
 
-    public const int TotalComponents = 51;
+    public const int TotalComponents = 53;
 
     public static readonly string[] componentNames = {
         "AdjustTransformWithSpawnPoint",
@@ -111,9 +113,11 @@ public static class GameComponentsLookup {
         "TargetId",
         "AngleShot",
         "AttackSpawnPoint",
-        "CannonLength",
         "CannonTower",
-        "SimpleTower"
+        "DeparturePoint",
+        "Prediction",
+        "SimpleTower",
+        "EntityViewPoolType"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -165,8 +169,10 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.TargetDetection.TargetId),
         typeof(Code.Gameplay.Towers.AngleShot),
         typeof(Code.Gameplay.Towers.AttackSpawnPoint),
-        typeof(Code.Gameplay.Towers.CannonLength),
         typeof(Code.Gameplay.Towers.CannonTowerComponent),
-        typeof(Code.Gameplay.Towers.SimpleTowerComponent)
+        typeof(Code.Gameplay.Towers.DeparturePoint),
+        typeof(Code.Gameplay.Towers.PredictionComponent),
+        typeof(Code.Gameplay.Towers.SimpleTowerComponent),
+        typeof(Code.Infrastructure.View.EntityViewPoolTypeComponent)
     };
 }

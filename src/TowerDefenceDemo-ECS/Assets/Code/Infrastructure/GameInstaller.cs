@@ -27,7 +27,7 @@ namespace Code.Infrastructure
             Container.Bind<ITimeService>().To<UnityTimeService>().AsSingle();
             
             Container.Bind<ISystemFactory>().To<SystemFactory>().AsSingle();
-            Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
+            Container.Bind<IEntityViewPool>().To<EntityViewPool>().AsSingle();
             Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
             Container.Bind<ITowerFactory>().To<TowerFactory>().AsSingle();
             Container.Bind<IProjectileFactory>().To<ProjectileFactory>().AsSingle();

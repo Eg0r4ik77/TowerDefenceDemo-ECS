@@ -11,6 +11,7 @@ namespace Code.Gameplay.Towers
         {
             Add(systemFactory.Create<CooldownSystem>());
             Add(systemFactory.Create<SimpleTowerAttackSystem>());
+            Add(systemFactory.Create<CannonTowerRotationSystem>());
             Add(systemFactory.Create<CannonTowerAttackSystem>());
         }
     }

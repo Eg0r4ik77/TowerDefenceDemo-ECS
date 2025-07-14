@@ -32,7 +32,7 @@ namespace Code.Gameplay.Projectiles.Systems
                         float sin = Mathf.Sin(entity.AngleShot);
                         float cos = Mathf.Cos(entity.AngleShot);
                         
-                        entity.ReplaceDirection(entity.Transform.forward * sin + Vector3.down * cos);
+                        entity.ReplaceDirection((entity.Transform.forward * sin + Vector3.down * cos).normalized);
                         entity.isParabolicMovement = true;
                     }
                 }

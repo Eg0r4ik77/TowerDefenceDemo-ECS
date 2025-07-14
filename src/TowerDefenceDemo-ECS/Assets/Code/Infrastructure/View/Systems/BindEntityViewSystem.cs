@@ -1,23 +1,25 @@
 using System.Collections.Generic;
 using Code.Infrastructure.View.Factory;
 using Entitas;
-using UnityEngine;
 
 namespace Code.Infrastructure.View.Systems
 {
     public class BindEntityViewSystem : IExecuteSystem
     {
-        private readonly IEntityViewFactory _entityViewFactory;
+        private readonly IEntityViewPool _entityViewPool;
+        
         private readonly IGroup<GameEntity> _entities;
         
         private readonly List<GameEntity> _buffer = new(32);
 
-        public BindEntityViewSystem(IEntityViewFactory entityViewFactory, GameContext game)
+        public BindEntityViewSystem(IEntityViewPool entityViewPool, GameContext game)
         {
-            _entityViewFactory = entityViewFactory;
-            
+            _entityViewPool = entityViewPool;
+
             _entities = game.GetGroup(GameMatcher
-                .AllOf(GameMatcher.ViewPrefab)
+                .AllOf(
+                    GameMatcher.EntityViewPoolType,
+                    GameMatcher.ViewPrefab)
                 .NoneOf(GameMatcher.View));
         }
 
@@ -25,13 +27,7 @@ namespace Code.Infrastructure.View.Systems
         {
             foreach (GameEntity entity in _entities.GetEntities(_buffer))
             {
-                if (entity.hasWorldPosition)
-                {
-                    _entityViewFactory.CreateViewForEntity(entity, entity.WorldPosition);
-                    return;
-                }
-                
-                _entityViewFactory.CreateViewForEntity(entity);
+                _entityViewPool.GetView(entity);
             }
         }
     }

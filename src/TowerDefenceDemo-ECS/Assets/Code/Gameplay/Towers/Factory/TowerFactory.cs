@@ -61,7 +61,6 @@ namespace Code.Gameplay.Towers.Factory
                 .AddWorldPosition(position)
                 .AddViewPrefab(data.Prefab)
                 .AddRotationSpeed(data.RotationSpeed)
-                .AddCannonLength(data.CannonLength)
                 .AddTargetDetectionInterval(data.TargetDetectionInterval)
                 .AddTargetDetectionTimer(data.TargetDetectionInterval)
                 .AddTargetDetectionDistance(data.TargetDetectionDistance)

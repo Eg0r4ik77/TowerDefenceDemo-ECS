@@ -25,12 +25,6 @@ namespace Code.Gameplay.TargetDetection.Systems
             foreach (GameEntity detector in _detectors.GetEntities(_detectorsBuffer))
             {
                 detector.isNeedForDetection = false;
-
-                //TODO: УБРАТЬ В ДРУГУЮ СИСТЕМУ 
-                GameEntity target = _gameContext.GetEntityWithId(detector.TargetId);
-
-                if (target.hasWorldPosition)
-                    detector.ReplaceTargetRotationPosition(new Vector3(target.WorldPosition.x, detector.WorldPosition.y, target.WorldPosition.z));
             }
         }
     }

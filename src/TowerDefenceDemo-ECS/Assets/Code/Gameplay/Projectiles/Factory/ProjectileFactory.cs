@@ -1,6 +1,7 @@
 using System;
 using Code.Common.Extensions;
 using Code.Infrastructure.Identifiers;
+using Code.Infrastructure.View;
 using Code.StaticData;
 using UnityEngine;
 
@@ -23,7 +24,7 @@ namespace Code.Gameplay.Projectiles.Factory
             return type switch
             {
                 ProjectileType.Guided => CreateGuided(position),
-                ProjectileType.Parabolic => CreateParabolic(position),
+                ProjectileType.Cannon => CreateCannon(position),
                 _ => throw new Exception($"Projectile with type {type} does not exist")
             };
         }
@@ -34,6 +35,7 @@ namespace Code.Gameplay.Projectiles.Factory
 
             return _gameContext.CreateEntity()
                 .AddWorldPosition(position)
+                .AddEntityViewPoolType(EntityViewPoolType.GuidedProjectile)
                 .AddViewPrefab(data.Prefab)
                 .AddSpeed(data.Speed)
                 .AddDamage(data.Damage)
@@ -43,12 +45,13 @@ namespace Code.Gameplay.Projectiles.Factory
                 .With(e => e.isMovementToTransform = true);
         }
 
-        private GameEntity CreateParabolic(Vector3 position)
+        private GameEntity CreateCannon(Vector3 position)
         {
-            ProjectileData data = _staticDataService.GetProjectileData(ProjectileType.Parabolic);
+            ProjectileData data = _staticDataService.GetProjectileData(ProjectileType.Cannon);
 
             return _gameContext.CreateEntity()
                 .AddWorldPosition(position)
+                .AddEntityViewPoolType(EntityViewPoolType.CannonProjectile)
                 .AddViewPrefab(data.Prefab)
                 .AddSpeed(data.Speed)
                 .AddDamage(data.Damage)

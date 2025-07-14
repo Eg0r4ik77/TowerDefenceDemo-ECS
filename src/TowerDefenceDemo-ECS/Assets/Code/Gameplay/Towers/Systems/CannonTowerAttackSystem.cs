@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Code.Gameplay.Cooldowns;
-using Code.Gameplay.Movement;
 using Code.Gameplay.Projectiles;
 using Code.Gameplay.Projectiles.Factory;
 using Entitas;
@@ -25,32 +24,40 @@ namespace Code.Gameplay.Attack.Systems
                 GameMatcher.TargetId,
                 GameMatcher.CannonTower,
                 GameMatcher.CooldownUp,
-                GameMatcher.AttackSpawnPoint));
+                GameMatcher.Prediction,
+                GameMatcher.AttackSpawnPoint,
+                GameMatcher.DeparturePoint));
         }
 
         public void Execute()
         {
             foreach (GameEntity cannonTower in _cannonTowers.GetEntities(_buffer))
             {
-                GameEntity target = _gameContext.GetEntityWithId(cannonTower.TargetId);
-                cannonTower.isRotating = true;
-                
-                Vector3 adjustedTargetPosition = target.WorldPosition;
-                adjustedTargetPosition.y = cannonTower.AttackSpawnPoint.position.y;
- 
-                float angleBetweenCannonAndTarget = Vector3.Angle(
-                    adjustedTargetPosition - cannonTower.AttackSpawnPoint.position,
-                    cannonTower.AttackSpawnPoint.forward);
+                Vector3 adjustedPredictedPosition = cannonTower.Prediction.Position;
+                adjustedPredictedPosition.y = cannonTower.DeparturePoint.position.y;
 
+                var distanceBeforeDeparture = Vector3.Distance(cannonTower.AttackSpawnPoint.position,
+                    cannonTower.DeparturePoint.position);
+                
+                float angleBetweenCannonAndTarget = Vector3.Angle(
+                    adjustedPredictedPosition - cannonTower.DeparturePoint.position,
+                    cannonTower.DeparturePoint.forward);
+                
+#if UNITY_EDITOR
+                Debug.DrawLine(cannonTower.DeparturePoint.position, adjustedPredictedPosition, Color.red);
+                Debug.DrawRay(cannonTower.DeparturePoint.position, cannonTower.DeparturePoint.forward * 10);
+#endif
                 if (angleBetweenCannonAndTarget < 1f)
                 {
-                    _projectileFactory.Create(ProjectileType.Parabolic, cannonTower.AttackSpawnPoint.position)
+                    // остановить поворот!
+                    // промахивается т.к. Time.deltaTime, а надо в FixedUpdate?
+                    // если prediction уже висит, то не надо его обновлять?
+                    _projectileFactory.Create(ProjectileType.Cannon, cannonTower.AttackSpawnPoint.position)
                         .AddAttackSpawnPoint(cannonTower.AttackSpawnPoint)
-                        .AddDistanceBeforeDeparture(cannonTower.CannonLength)
-                        .AddAngleShot(60 * Mathf.Deg2Rad)
+                        .AddDistanceBeforeDeparture(distanceBeforeDeparture)
+                        .AddAngleShot(cannonTower.Prediction.Angle)
                         .AddRotation(cannonTower.AttackSpawnPoint.rotation);
                 
-                    cannonTower.isRotating = false;
                     cannonTower.PutOnCooldown();
                 }
             }

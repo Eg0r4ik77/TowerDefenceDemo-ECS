@@ -44,6 +44,7 @@ namespace Code.Gameplay.Enemies
              return _gameContext.CreateEntity()
                  .AddId(_identifierGenerator.GetId())
                  .AddLayer(EntityLayer.Enemy)
+                 .AddEntityViewPoolType(EntityViewPoolType.SimpleEnemy)
                  .AddWorldPosition(position)
                  .AddViewPrefab(data.Prefab)
                  .AddSpeed(data.Speed)

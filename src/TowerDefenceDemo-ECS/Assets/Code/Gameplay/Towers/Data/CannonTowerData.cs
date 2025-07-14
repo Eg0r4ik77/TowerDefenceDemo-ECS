@@ -6,6 +6,5 @@ namespace Code.Gameplay.Towers
     public class CannonTowerData : TowerData
     { 
         [field: SerializeField] public float RotationSpeed { get; private set; }
-        [field: SerializeField] public float CannonLength { get; private set; }
     }
 }
