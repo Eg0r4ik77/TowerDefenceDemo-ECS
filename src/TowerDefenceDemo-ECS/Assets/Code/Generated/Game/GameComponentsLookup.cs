@@ -38,28 +38,29 @@ public static class GameComponentsLookup {
     public const int Moving = 27;
     public const int ParabolicMovement = 28;
     public const int ReachDistance = 29;
-    public const int Rotation = 30;
-    public const int RotationSpeed = 31;
-    public const int Speed = 32;
-    public const int TargetPosition = 33;
-    public const int TargetRotationPosition = 34;
-    public const int CannonProjectile = 35;
-    public const int DistanceBeforeDeparture = 36;
-    public const int FollowingTarget = 37;
-    public const int NeedForDetection = 38;
-    public const int ReadyForDetection = 39;
-    public const int TargetDetectionDistance = 40;
-    public const int TargetDetectionInterval = 41;
-    public const int TargetDetectionLayerMask = 42;
-    public const int TargetDetectionTimer = 43;
-    public const int TargetId = 44;
-    public const int AngleShot = 45;
-    public const int AttackSpawnPoint = 46;
-    public const int CannonLength = 47;
-    public const int CannonTower = 48;
-    public const int SimpleTower = 49;
+    public const int Rotating = 30;
+    public const int Rotation = 31;
+    public const int RotationSpeed = 32;
+    public const int Speed = 33;
+    public const int TargetPosition = 34;
+    public const int TargetRotationPosition = 35;
+    public const int CannonProjectile = 36;
+    public const int DistanceBeforeDeparture = 37;
+    public const int FollowingTarget = 38;
+    public const int NeedForDetection = 39;
+    public const int ReadyForDetection = 40;
+    public const int TargetDetectionDistance = 41;
+    public const int TargetDetectionInterval = 42;
+    public const int TargetDetectionLayerMask = 43;
+    public const int TargetDetectionTimer = 44;
+    public const int TargetId = 45;
+    public const int AngleShot = 46;
+    public const int AttackSpawnPoint = 47;
+    public const int CannonLength = 48;
+    public const int CannonTower = 49;
+    public const int SimpleTower = 50;
 
-    public const int TotalComponents = 50;
+    public const int TotalComponents = 51;
 
     public static readonly string[] componentNames = {
         "AdjustTransformWithSpawnPoint",
@@ -92,6 +93,7 @@ public static class GameComponentsLookup {
         "Moving",
         "ParabolicMovement",
         "ReachDistance",
+        "Rotating",
         "Rotation",
         "RotationSpeed",
         "Speed",
@@ -145,6 +147,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Movement.Moving),
         typeof(Code.Gameplay.Movement.ParabolicMovement),
         typeof(Code.Gameplay.Movement.ReachDistance),
+        typeof(Code.Gameplay.Movement.Rotating),
         typeof(Code.Gameplay.Movement.Rotation),
         typeof(Code.Gameplay.Movement.RotationSpeed),
         typeof(Code.Gameplay.Movement.Speed),

@@ -476,6 +476,7 @@
 "Assets/Code/Generated/Game/Components/GameReachDistanceComponent.cs"
 "Assets/Code/Generated/Game/Components/GameReadyForDetectionComponent.cs"
 "Assets/Code/Generated/Game/Components/GameRigidbodyComponent.cs"
+"Assets/Code/Generated/Game/Components/GameRotatingComponent.cs"
 "Assets/Code/Generated/Game/Components/GameRotationComponent.cs"
 "Assets/Code/Generated/Game/Components/GameRotationSpeedComponent.cs"
 "Assets/Code/Generated/Game/Components/GameSelfDestructTimerComponent.cs"
