@@ -52,4 +52,4 @@ Jenny.Client.Host = localhost
 DesperateDevs.CodeGeneration.Plugins.ProjectPath = ../src/TheCatCase/Assembly-CSharp.csproj
 Entitas.CodeGeneration.Plugins.Contexts = Game,Logic,Data,Battle
 Entitas.CodeGeneration.Plugins.IgnoreNamespaces = true
-DesperateDevs.CodeGeneration.Plugins.TargetDirectory = ../src/TheCatCase/Assets/Code
+DesperateDevs.CodeGeneration.Plugins.TargetDirectory = ../src/TheCatCase/Assets/Scripts
