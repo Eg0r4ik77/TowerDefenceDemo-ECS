@@ -8,8 +8,8 @@ namespace Code.Infrastructure
     {
         [field: SerializeField] private Transform _spawnPoint;
         [field: SerializeField] private Transform _targetPoint;
-        
-        public Vector3 SpawnPosition => _spawnPoint.position;
-        public Vector3 TargetPosition => _targetPoint.position;
+
+        public Transform SpawnPoint => _spawnPoint;
+        public Transform TargetPoint => _targetPoint;
     }
 }

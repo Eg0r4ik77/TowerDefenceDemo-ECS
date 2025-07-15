@@ -28,16 +28,16 @@ namespace Code.Gameplay.Enemies
             _identifierGenerator = identifierGenerator;
         }
         
-        public GameEntity Create(EnemyType type, Vector3 position)
+        public GameEntity Create(EnemyType type, Vector3 position, Quaternion rotation)
         {
             return type switch
             {
-                EnemyType.Simple => CreateSimple(position),
+                EnemyType.Simple => CreateSimple(position, rotation),
                 _ => throw new Exception($"Enemy with type {type} does not exist")
             };
         }
 
-        private GameEntity CreateSimple(Vector3 position)
+        private GameEntity CreateSimple(Vector3 position, Quaternion rotation)
         {
              EnemyData data = _staticDataService.GetEnemyData(EnemyType.Simple);
 
@@ -46,12 +46,13 @@ namespace Code.Gameplay.Enemies
                  .AddLayer(EntityLayer.Enemy)
                  .AddEntityViewPoolType(EntityViewPoolType.SimpleEnemy)
                  .AddWorldPosition(position)
+                 .AddRotation(rotation)
                  .AddViewPrefab(data.Prefab)
                  .AddSpeed(data.Speed)
                  .AddReachDistance(data.ReachDistance)
                  .AddMaxHealth(data.MaxHealth)
                  .AddHealth(data.MaxHealth)
-                 .AddTargetPosition(_levelDataProvider.TargetPosition)
+                 .AddTargetPosition(_levelDataProvider.TargetPoint.position)
                  .With(e => e.isEnemy = true)
                  .With(e => e.isAdjustTransformWithSpawnPoint = true)
                  .With(e => e.isMoving = true)

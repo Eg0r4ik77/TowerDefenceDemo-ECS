@@ -30,16 +30,16 @@ namespace Code.Gameplay.Attack.Systems
                     cannonTower.DeparturePoint.position);
                 
                 var prediction = CalculatePredictedPosition(cannonTower, target, distanceBeforeDeparture);
-
-                if (prediction == null && cannonTower.hasPrediction && cannonTower.hasTargetRotationPosition)
+                
+                if (prediction != null)
+                {
+                    cannonTower.ReplacePrediction(prediction.Value);
+                    cannonTower.ReplaceTargetRotationPosition(prediction.Value.Position);     
+                }
+                else if (cannonTower.hasPrediction && cannonTower.hasTargetRotationPosition)
                 {
                     cannonTower.RemovePrediction();
                     cannonTower.RemoveTargetRotationPosition();
-                }
-                else
-                {
-                    cannonTower.ReplacePrediction(prediction.Value);
-                    cannonTower.ReplaceTargetRotationPosition(prediction.Value.Position);           
                 }
             }
         }

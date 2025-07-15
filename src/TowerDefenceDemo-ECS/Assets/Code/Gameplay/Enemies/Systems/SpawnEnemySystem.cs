@@ -16,7 +16,7 @@ namespace Code.Gameplay.Enemies.Systems
 
         private float _interval;
         private EnemyType _enemyType;
-        private Vector3 _spawnPosition;
+        private Transform _spawnPoint;
         
         public SpawnEnemySystem(IEnemyFactory enemyFactory,
             ITimeService timeService,
@@ -41,7 +41,7 @@ namespace Code.Gameplay.Enemies.Systems
                 {
                     entity.ReplaceEnemySpawnTimer(_interval);
                     
-                    _enemyFactory.Create(_enemyType, _spawnPosition);
+                    _enemyFactory.Create(_enemyType, _spawnPoint.position, _spawnPoint.rotation);
                 }
 
                 entity.ReplaceEnemySpawnTimer(entity.EnemySpawnTimer - _timeService.DeltaTime);
@@ -54,7 +54,7 @@ namespace Code.Gameplay.Enemies.Systems
             
             _interval = data.Interval;
             _enemyType = data.EnemyType;
-            _spawnPosition = levelDataProvider.SpawnPosition;
+            _spawnPoint = levelDataProvider.SpawnPoint;
         }
     }
 }

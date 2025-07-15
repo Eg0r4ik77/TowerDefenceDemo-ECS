@@ -9,7 +9,8 @@ namespace Code.Gameplay.Attack.Systems
 {
     public class CannonTowerAttackSystem : IExecuteSystem
     {
-        private readonly GameContext _gameContext;
+        private const float MaxAngleBetweenCannonAndTarget = 0.5f;
+        
         private readonly IProjectileFactory _projectileFactory;
 
         private readonly IGroup<GameEntity> _cannonTowers;
@@ -17,7 +18,6 @@ namespace Code.Gameplay.Attack.Systems
 
         public CannonTowerAttackSystem(GameContext gameContext, IProjectileFactory projectileFactory)
         {
-            _gameContext = gameContext;
             _projectileFactory = projectileFactory;
             
             _cannonTowers = gameContext.GetGroup(GameMatcher.AllOf(
@@ -35,28 +35,21 @@ namespace Code.Gameplay.Attack.Systems
             {
                 Vector3 adjustedPredictedPosition = cannonTower.Prediction.Position;
                 adjustedPredictedPosition.y = cannonTower.DeparturePoint.position.y;
-
-                var distanceBeforeDeparture = Vector3.Distance(cannonTower.AttackSpawnPoint.position,
-                    cannonTower.DeparturePoint.position);
                 
                 float angleBetweenCannonAndTarget = Vector3.Angle(
                     adjustedPredictedPosition - cannonTower.DeparturePoint.position,
                     cannonTower.DeparturePoint.forward);
                 
-#if UNITY_EDITOR
-                Debug.DrawLine(cannonTower.DeparturePoint.position, adjustedPredictedPosition, Color.red);
-                Debug.DrawRay(cannonTower.DeparturePoint.position, cannonTower.DeparturePoint.forward * 10);
-#endif
-                if (angleBetweenCannonAndTarget < 1f)
+                if (angleBetweenCannonAndTarget < MaxAngleBetweenCannonAndTarget)
                 {
-                    // остановить поворот!
-                    // промахивается т.к. Time.deltaTime, а надо в FixedUpdate?
-                    // если prediction уже висит, то не надо его обновлять?
+                    float distanceBeforeDeparture = Vector3.Distance(cannonTower.AttackSpawnPoint.position,
+                        cannonTower.DeparturePoint.position);
+                    
                     _projectileFactory.Create(ProjectileType.Cannon, cannonTower.AttackSpawnPoint.position)
                         .AddAttackSpawnPoint(cannonTower.AttackSpawnPoint)
+                        .AddRotation(cannonTower.AttackSpawnPoint.rotation)
                         .AddDistanceBeforeDeparture(distanceBeforeDeparture)
-                        .AddAngleShot(cannonTower.Prediction.Angle)
-                        .AddRotation(cannonTower.AttackSpawnPoint.rotation);
+                        .AddAngleShot(cannonTower.Prediction.Angle);
                 
                     cannonTower.PutOnCooldown();
                 }

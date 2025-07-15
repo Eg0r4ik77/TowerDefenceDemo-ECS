@@ -508,7 +508,6 @@
 "Assets/Code/Infrastructure/Identifiers/IdentifierGenerator.cs"
 "Assets/Code/Infrastructure/Identifiers/IIdentifierGenerator.cs"
 "Assets/Code/Infrastructure/LevelDataProvider.cs"
-"Assets/Code/Infrastructure/Pools/Pool.cs"
 "Assets/Code/Infrastructure/Systems/ISystemFactory.cs"
 "Assets/Code/Infrastructure/Systems/SystemFactory.cs"
 "Assets/Code/Infrastructure/View/BindViewFeature.cs"

@@ -24,12 +24,12 @@ namespace Code.Gameplay.Movement.Systems
         {
             foreach (GameEntity entity in _entities)
             {
-                var direction = (entity.TargetRotationPosition - entity.Transform.position).normalized;
+                Vector3 direction = (entity.TargetRotationPosition - entity.Transform.position).normalized;
 			     
                 direction.y = 0;
         
-                var rotation = Quaternion.LookRotation(direction);
-                var degreesDelta = entity.RotationSpeed * _timeService.DeltaTime;
+                Quaternion rotation = Quaternion.LookRotation(direction);
+                float degreesDelta = entity.RotationSpeed * _timeService.DeltaTime;
         
                 entity.ReplaceRotation(Quaternion.RotateTowards(entity.Rotation, rotation, degreesDelta));
             }
