@@ -38,31 +38,32 @@ public static class GameComponentsLookup {
     public const int Moving = 27;
     public const int ParabolicMovement = 28;
     public const int ReachDistance = 29;
-    public const int Rotating = 30;
-    public const int Rotation = 31;
-    public const int RotationSpeed = 32;
-    public const int Speed = 33;
-    public const int TargetPosition = 34;
-    public const int TargetRotationPosition = 35;
-    public const int CannonProjectile = 36;
-    public const int DistanceBeforeDeparture = 37;
-    public const int FollowingTarget = 38;
-    public const int NeedForDetection = 39;
-    public const int ReadyForDetection = 40;
-    public const int TargetDetectionDistance = 41;
-    public const int TargetDetectionInterval = 42;
-    public const int TargetDetectionLayerMask = 43;
-    public const int TargetDetectionTimer = 44;
-    public const int TargetId = 45;
-    public const int AngleShot = 46;
-    public const int AttackSpawnPoint = 47;
-    public const int CannonTower = 48;
-    public const int DeparturePoint = 49;
-    public const int Prediction = 50;
+    public const int Rotation = 30;
+    public const int RotationSpeed = 31;
+    public const int Speed = 32;
+    public const int TargetPosition = 33;
+    public const int TargetRotationPosition = 34;
+    public const int CannonProjectile = 35;
+    public const int DistanceBeforeDeparture = 36;
+    public const int FollowingTarget = 37;
+    public const int NeedForDetection = 38;
+    public const int ReadyForDetection = 39;
+    public const int TargetDetectionDistance = 40;
+    public const int TargetDetectionInterval = 41;
+    public const int TargetDetectionLayerMask = 42;
+    public const int TargetDetectionTimer = 43;
+    public const int TargetId = 44;
+    public const int AngleShot = 45;
+    public const int AttackSpawnPoint = 46;
+    public const int CannonTower = 47;
+    public const int DeparturePoint = 48;
+    public const int Prediction = 49;
+    public const int RotationDelay = 50;
     public const int SimpleTower = 51;
-    public const int EntityViewPoolType = 52;
+    public const int StartProjectileSpeed = 52;
+    public const int EntityViewPoolType = 53;
 
-    public const int TotalComponents = 53;
+    public const int TotalComponents = 54;
 
     public static readonly string[] componentNames = {
         "AdjustTransformWithSpawnPoint",
@@ -95,7 +96,6 @@ public static class GameComponentsLookup {
         "Moving",
         "ParabolicMovement",
         "ReachDistance",
-        "Rotating",
         "Rotation",
         "RotationSpeed",
         "Speed",
@@ -116,7 +116,9 @@ public static class GameComponentsLookup {
         "CannonTower",
         "DeparturePoint",
         "Prediction",
+        "RotationDelay",
         "SimpleTower",
+        "StartProjectileSpeed",
         "EntityViewPoolType"
     };
 
@@ -151,7 +153,6 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Movement.Moving),
         typeof(Code.Gameplay.Movement.ParabolicMovement),
         typeof(Code.Gameplay.Movement.ReachDistance),
-        typeof(Code.Gameplay.Movement.Rotating),
         typeof(Code.Gameplay.Movement.Rotation),
         typeof(Code.Gameplay.Movement.RotationSpeed),
         typeof(Code.Gameplay.Movement.Speed),
@@ -172,7 +173,9 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Towers.CannonTowerComponent),
         typeof(Code.Gameplay.Towers.DeparturePoint),
         typeof(Code.Gameplay.Towers.PredictionComponent),
+        typeof(Code.Gameplay.Towers.RotationDelay),
         typeof(Code.Gameplay.Towers.SimpleTowerComponent),
+        typeof(Code.Gameplay.Towers.StartProjectileSpeed),
         typeof(Code.Infrastructure.View.EntityViewPoolTypeComponent)
     };
 }

@@ -1,3 +1,4 @@
+using Code.Common;
 using Code.Gameplay.Common.Time;
 using Entitas;
 using UnityEngine;
@@ -25,7 +26,7 @@ namespace Code.Gameplay.Movement.Systems
         {
             foreach (GameEntity mover in _movers)
             {
-                Vector3 gravity = Vector3.down * 9.81f * _timeService.DeltaTime;
+                Vector3 gravity = Vector3.up * GameplayConstants.GravityAcceleration * _timeService.DeltaTime;
                 Vector3 newVelocity = mover.Direction * mover.Speed + gravity;
 
                 mover.ReplaceSpeed(newVelocity.magnitude);

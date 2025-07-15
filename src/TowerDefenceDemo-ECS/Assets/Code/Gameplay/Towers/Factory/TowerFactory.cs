@@ -35,7 +35,7 @@ namespace Code.Gameplay.Towers.Factory
 
         private GameEntity CreateSimple(Vector3 position)
         {
-            SimpleTowerData data = (SimpleTowerData)_staticDataService.GetTowerData(TowerType.Simple);
+            TowerData data = _staticDataService.GetTowerData(TowerType.Simple);
 
             return _gameContext.CreateEntity()
                 .AddId(_identifierGenerator.GetId())
@@ -64,6 +64,7 @@ namespace Code.Gameplay.Towers.Factory
                 .AddTargetDetectionInterval(data.TargetDetectionInterval)
                 .AddTargetDetectionTimer(data.TargetDetectionInterval)
                 .AddTargetDetectionDistance(data.TargetDetectionDistance)
+                .AddStartProjectileSpeed(data.StartProjectileSpeed)
                 .AddTargetDetectionLayerMask(EntityLayer.Enemy.AsMask())
                 .AddCooldown(data.Cooldown)
                 .PutOnCooldown()

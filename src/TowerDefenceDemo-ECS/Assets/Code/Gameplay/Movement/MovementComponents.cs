@@ -11,7 +11,6 @@ namespace Code.Gameplay.Movement
     [Game] public class Rotation : IComponent { public Quaternion Value; }
     [Game] public class TargetRotationPosition : IComponent { public Vector3 Value; }
     [Game] public class RotationSpeed : IComponent { public float Value; }
-    [Game] public class Rotating : IComponent { }
     
     [Game] public class MovementByRigidbody : IComponent { }
     

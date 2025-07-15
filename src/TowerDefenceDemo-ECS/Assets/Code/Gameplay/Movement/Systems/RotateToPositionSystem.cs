@@ -24,15 +24,33 @@ namespace Code.Gameplay.Movement.Systems
         {
             foreach (GameEntity entity in _entities)
             {
-                Vector3 direction = (entity.TargetRotationPosition - entity.Transform.position).normalized;
-			     
-                direction.y = 0;
-        
-                Quaternion rotation = Quaternion.LookRotation(direction);
-                float degreesDelta = entity.RotationSpeed * _timeService.DeltaTime;
-        
-                entity.ReplaceRotation(Quaternion.RotateTowards(entity.Rotation, rotation, degreesDelta));
+                if (entity.hasRotationDelay)
+                {
+                    if (entity.RotationDelay <= 0)
+                    {
+                        entity.RemoveRotationDelay();
+                    }
+                    else
+                    {
+                        entity.ReplaceRotationDelay(entity.RotationDelay - _timeService.DeltaTime);
+                        continue;
+                    }
+                }
+                
+                Rotate(entity);
             }
+        }
+
+        private void Rotate(GameEntity entity)
+        {
+            Vector3 direction = (entity.TargetRotationPosition - entity.Transform.position).normalized;
+			     
+            direction.y = 0;
+        
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            float degreesDelta = entity.RotationSpeed * _timeService.DeltaTime;
+        
+            entity.ReplaceRotation(Quaternion.RotateTowards(entity.Rotation, rotation, degreesDelta));
         }
     }
 }

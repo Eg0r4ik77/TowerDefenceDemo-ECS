@@ -50,8 +50,10 @@ namespace Code.Gameplay.Attack.Systems
                         .AddRotation(cannonTower.AttackSpawnPoint.rotation)
                         .AddDistanceBeforeDeparture(distanceBeforeDeparture)
                         .AddAngleShot(cannonTower.Prediction.Angle);
-                
+
+                    cannonTower.AddRotationDelay(distanceBeforeDeparture / cannonTower.StartProjectileSpeed + 0.2f);
                     cannonTower.PutOnCooldown();
+                    cannonTower.RemovePrediction();
                 }
             }
         }
